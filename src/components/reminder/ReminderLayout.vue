@@ -1,27 +1,26 @@
 <template>
-  <div class="hello">abc</div>
+  <div class="container mainContainer">
+    <NavBar></NavBar>
+  </div>
 </template>
 
 <script>
+import NavBar from './navBar/NavBar'
+
 export default {
   name: 'ReminderLayout',
+  components: {
+    NavBar,
+  },
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+<style lang="scss" scoped>
+.mainContainer {
+  margin-top: 10vh;
+  width: 80vw;
+  height: 90vh;
+  min-height: 836px;
+  background-color: white;
 }
 </style>

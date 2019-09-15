@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <ReminderLayout msg="Welcome to Your Vue.js App" />
+    <ReminderLayout />
   </div>
 </template>
 
@@ -16,13 +15,23 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import "./sass/abstracts/_variables.scss";
+@import "~bulma/sass/utilities/_all";
+
+body {
+  margin: 0;
+  background-color: #9f8fcc;
+  overflow: hidden;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: "Ruluko", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: $primary-color;
 }
 </style>
