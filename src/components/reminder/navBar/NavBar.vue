@@ -1,5 +1,5 @@
 <template>
-  <b-navbar class="container navBarContainer">
+  <b-navbar class="navBarContainer">
     <template slot="brand">
       <b-navbar-item>
         <div class="logo">Reminder</div>
@@ -39,12 +39,11 @@ export default {
 
 .navBarContainer {
   height: 9.5vw;
-  border-bottom: 2px solid $primary-color;
+  border-bottom: 2px solid $secondary-color;
   width: 100%;
 }
 .logo {
   font-size: 3vw;
-  line-height: 100%;
   margin-left: 3.5vw;
   color: $primary-color;
 }
