@@ -17,14 +17,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../../../sass/abstracts/_variables";
-
 .sideBarLink {
   display: flex;
   align-items: center;
   height: 4.3vw;
   font-size: 1.7vw;
   padding-left: 2vw;
+  color: $primary-color;
 }
 .sideBarLink:first-child {
   margin-top: 2vw;

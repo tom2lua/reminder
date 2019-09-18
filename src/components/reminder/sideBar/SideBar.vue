@@ -1,5 +1,5 @@
 <template>
-  <div class="column is-3">
+  <div class="column is-3 sideBar">
     <SideBarLink label="New Event" :isActive="true"></SideBarLink>
     <SideBarLink label="Calendar"></SideBarLink>
     <SideBarLink label="Settings"></SideBarLink>
@@ -17,4 +17,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.sideBar {
+  border-right: 2px solid $secondary-color;
+}
 </style>

@@ -18,17 +18,20 @@ export default {
 </script>
 
 <style lang="scss">
-@import "./sass/abstracts/_variables.scss";
 @import "~bulma/sass/utilities/_all";
 
-$tom-color: $primary-color;
-
+// Set your colors
 $primary: #8c67ef;
 $primary-invert: findColorInvert($primary);
 $twitter: #4099ff;
 $twitter-invert: findColorInvert($twitter);
 
+// Setup $colors to use as bulma classes (e.g. 'is-twitter')
 $colors: (
+  "tom": (
+    $primary,
+    $primary-invert
+  ),
   "white": (
     $white,
     $black
@@ -71,19 +74,21 @@ $colors: (
   )
 );
 
+// Links
+$link: $primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+
 // Import Bulma and Buefy styles
-// @import "~bulma";
-// @import "~buefy/src/scss/buefy";
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
 
 html {
   overflow: scroll;
   overflow-x: hidden;
-  height: 100%;
 }
 body {
   margin: 0;
-  height: 100%;
-  background-color: #9f8fcc;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -92,5 +97,7 @@ body {
   font-family: "Ruluko", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #9f8fcc;
+  display: flexbox;
 }
 </style>

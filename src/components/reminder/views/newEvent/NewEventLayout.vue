@@ -1,11 +1,7 @@
 <template>
-  <div class="container">
+  <div>
     <div class="header">New Event</div>
-    <div class="columns">
-      <div class="column is-4 is-offset-1">
-        <NewEventForm></NewEventForm>
-      </div>
-    </div>
+    <NewEventForm></NewEventForm>
   </div>
 </template>
 
@@ -22,7 +18,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "../../../../sass/abstracts/_variables.scss";
-
 .header {
   margin: 3vh 0vh;
   color: $primary-color;

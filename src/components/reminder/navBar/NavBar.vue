@@ -35,10 +35,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../../../sass/abstracts/_variables.scss";
-
 .navBarContainer {
-  height: 9.5vw;
+  height: 8vw;
   border-bottom: 2px solid $secondary-color;
   width: 100%;
 }
@@ -50,6 +48,7 @@ export default {
 .navBarMenu {
   font-size: 1.5vw;
   width: 10vw;
+  color: $primary-color;
 }
 .navbar-menu {
   margin-right: 0px !important;
