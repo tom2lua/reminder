@@ -1,8 +1,8 @@
 <template>
   <div class="column is-3 sideBar">
-    <SideBarLink label="New Event" :isActive="true"></SideBarLink>
-    <SideBarLink label="Calendar"></SideBarLink>
-    <SideBarLink label="Settings"></SideBarLink>
+    <SideBarLink label="New Event" link="newEvent"></SideBarLink>
+    <SideBarLink label="Calendar" link="calendar"></SideBarLink>
+    <SideBarLink label="Settings" link="settings"></SideBarLink>
   </div>
 </template>
 

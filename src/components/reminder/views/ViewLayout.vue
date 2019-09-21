@@ -1,16 +1,17 @@
 <template>
   <div class="column is-9">
-    <NewEventLayout></NewEventLayout>
+    <router-view></router-view>
+    <!-- <NewEventLayout></NewEventLayout> -->
   </div>
 </template>
 
 <script>
-import NewEventLayout from './newEvent/NewEventLayout'
+// import NewEventLayout from './newEvent/NewEventLayout'
 
 export default {
   name: 'ViewLayout',
   components: {
-    NewEventLayout
+    // NewEventLayout
   }
 }
 </script>

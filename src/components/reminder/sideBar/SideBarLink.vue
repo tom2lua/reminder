@@ -1,17 +1,30 @@
 <template>
-  <p class="sideBarLink" :class="{ active: isActive }">{{label}}</p>
+  <router-link class="sideBarLink" :class="{ active: isActive }" :to="{name: link}">{{label}}</router-link>
 </template>
 
 <script>
 export default {
   name: 'SideBarLink',
   props: {
-    isActive: {
-      type: Boolean,
-      default: false,
-    },
     label: String,
     link: String,
+  },
+  data() {
+    return {
+      isActive: false
+    }
+  },
+  mounted() {
+    if (this.$route.fullPath.includes(this.link))
+      this.isActive = true
+  },
+  watch: {
+    $route() {
+      if (this.$route.fullPath.includes(this.link))
+        this.isActive = true
+      else
+        this.isActive = false
+    }
   }
 }
 </script>
@@ -29,7 +42,7 @@ export default {
   margin-top: 2vw;
 }
 .sideBarLink:hover {
-  background-color: $secondary-color;
+  background-color: $background-color;
   color: white;
   cursor: pointer;
 }

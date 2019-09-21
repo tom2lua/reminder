@@ -1,11 +1,13 @@
 <template>
-  <div class="column is-8-fullhd mainContainer">
-    <NavBar></NavBar>
-    <div class="columns is-gapless">
-      <SideBar></SideBar>
-      <ViewLayout></ViewLayout>
+  <div class="columns is-gapless is-centered">
+    <div class="column is-8-fullhd mainContainer">
+      <NavBar></NavBar>
+      <div class="columns is-gapless">
+        <SideBar></SideBar>
+        <ViewLayout></ViewLayout>
+      </div>
+      <Footer></Footer>
     </div>
-    <Footer></Footer>
   </div>
 </template>
 
