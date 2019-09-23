@@ -4,9 +4,8 @@
 
 <script>
 export default {
-  name: 'SettingsLayout'
-}
+  name: "SettingsLayout"
+};
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

@@ -3,7 +3,7 @@
     <div class="columns formContainer">
       <div class="column is-5 is-offset-1">
         <b-field label="Event Name" custom-class="has-text-primary">
-          <b-input v-model="eventName"></b-input>
+          <b-input v-model="eventName" />
         </b-field>
         <b-field label="Location" custom-class="has-text-primary">
           <b-input v-model="eventName"></b-input>
@@ -16,7 +16,7 @@
                 placeholder="Select..."
                 icon="clock"
                 hour-format="12"
-              ></b-clockpicker>
+              />
             </b-field>
           </div>
           <div class="column is-6">
@@ -26,16 +26,21 @@
                 placeholder="Select..."
                 icon="clock"
                 hour-format="12"
-              ></b-clockpicker>
+              />
             </b-field>
           </div>
         </div>
         <b-field label="Description" custom-class="has-text-primary">
-          <b-input v-model="eventDescription" type="textarea"></b-input>
+          <b-input v-model="eventDescription" type="textarea" />
         </b-field>
         <b-field label="Repeat" custom-class="has-text-primary">
           <b-select v-model="eventRepeat">
-            <option v-for="option in eventRepeatOptions" :value="option" :key="option">{{ option }}</option>
+            <option
+              v-for="option in eventRepeatOptions"
+              :key="option"
+              :value="option"
+              >{{ option }}</option
+            >
           </b-select>
         </b-field>
         <div class="buttons">
@@ -45,9 +50,18 @@
       </div>
       <div class="column is-5">
         <b-field label="Select a date" custom-class="has-text-primary">
-          <b-datepicker v-model="eventDate" :years-range="[0, 10]" :nearby-month-days="true" inline></b-datepicker>
+          <b-datepicker
+            v-model="eventDate"
+            :years-range="[0, 10]"
+            :nearby-month-days="true"
+            inline
+          ></b-datepicker>
         </b-field>
-        <b>{{eventDate.getDate()}}.{{eventDate.getMonth()}}.{{eventDate.getFullYear()}}</b>
+        <b>
+          {{ eventDate.getDate() }}.{{ eventDate.getMonth() }}.{{
+            eventDate.getFullYear()
+          }}
+        </b>
       </div>
     </div>
     <div class="columns"></div>
@@ -56,22 +70,28 @@
 
 <script>
 export default {
-  name: 'NewEventForm',
+  name: "NewEventForm",
   data() {
     return {
-      eventName: '',
-      eventLocation: '',
+      eventName: "",
+      eventLocation: "",
       eventStartTime: new Date(),
       eventEndTime: new Date(),
-      eventPeople: { name: 'Tom', id: 1 },
-      eventDescription: '',
+      eventPeople: { name: "Tom", id: 1 },
+      eventDescription: "",
       eventDate: new Date(),
-      eventRepeat: 'No Repeat',
+      eventRepeat: "No Repeat",
 
-      eventRepeatOptions: ['No Repeat', 'Daily', 'Weekly', 'Monthly', 'Annually'],
-    }
+      eventRepeatOptions: [
+        "No Repeat",
+        "Daily",
+        "Weekly",
+        "Monthly",
+        "Annually"
+      ]
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

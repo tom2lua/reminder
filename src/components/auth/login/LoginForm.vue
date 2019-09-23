@@ -6,15 +6,24 @@
           <b-input v-model="username"></b-input>
         </b-field>
         <b-field label="Password" custom-class="has-text-primary">
-          <b-input type="password" v-model="password" password-reveal></b-input>
+          <b-input v-model="password" type="password" password-reveal></b-input>
         </b-field>
         <p class="has-text-right">
-          <router-link :to="{name: 'signUp'}">Forgot your password</router-link>
+          <b-notification
+            :active.sync="notiActive"
+            type="is-danger"
+            aria-close-label="Close notification"
+            role="alert"
+            >{{ notiMessage }}</b-notification
+          >
+          <router-link :to="{ name: 'signUp' }"
+            >Forgot your password</router-link
+          >
         </p>
-        <b-button v-on:click="login" type="is-primary">Login</b-button>
+        <b-button type="is-primary" @click="login">Login</b-button>
         <p class="registerText">
           Doesn't have an account yet? Join us
-          <router-link :to="{name: 'signUp'}">now!</router-link>
+          <router-link to="{name: 'signUp'}">now!</router-link>
         </p>
       </div>
     </div>
@@ -23,19 +32,28 @@
 
 <script>
 export default {
-  name: 'LoginForm',
+  name: "LoginForm",
   data() {
     return {
-      username: '',
-      password: '',
-    }
+      username: "",
+      password: "",
+      notiMessage: "",
+      notiActive: false
+    };
   },
   methods: {
-    login() {
-
+    async login() {
+      await this.$store.dispatch("LOG_IN", {
+        username: this.username,
+        password: this.password
+      });
+      if (!this.$store.state.authentication.authenticated) {
+        this.notiMessage = "Wrong Username or Password";
+        this.notiActive = true;
+      }
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

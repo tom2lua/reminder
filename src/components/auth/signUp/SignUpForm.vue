@@ -14,7 +14,7 @@
         <b-field label="Email" custom-class="has-text-primary">
           <b-input v-model="email"></b-input>
         </b-field>
-        <b-button type="is-primary">Sign Up</b-button>
+        <b-button class="signUpButton" type="is-primary">Sign Up</b-button>
       </div>
     </div>
   </div>
@@ -22,16 +22,16 @@
 
 <script>
 export default {
-  name: 'SignUpForm',
+  name: "SignUpForm",
   data() {
     return {
-      username: '',
-      password: '',
-      retypePassword: '',
-      email: '',
-    }
+      username: "",
+      password: "",
+      retypePassword: "",
+      email: ""
+    };
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -43,7 +43,7 @@ export default {
 .columns {
   margin: 0;
 }
-.registerText {
-  margin-top: 20px;
+.signUpButton {
+  margin-top: 30px;
 }
 </style>

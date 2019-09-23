@@ -2,7 +2,7 @@
   <div class="container footerContainer">
     <p>
       <b>Reminder</b> by
-      <a href="https://github.com/tom2lua">Nguyen Tran</a>. Inspired by
+      <a href="https://github.com/tom2lua">Nguyen Tran</a>.Inspired by
       <a href="https://github.com/antrannguyen">An Tran</a>
     </p>
   </div>
@@ -10,8 +10,13 @@
 
 <script>
 export default {
-
-}
+  name: "Footer",
+  methods: {
+    abc() {
+      console.log();
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

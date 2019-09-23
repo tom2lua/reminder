@@ -1,28 +1,31 @@
 <template>
   <div class="columns is-gapless is-centered">
     <div class="column is-8-fullhd mainContainer">
-      <NavBar></NavBar>
+      <NavBar />>
       <div class="columns is-gapless">
-        <SideBar></SideBar>
-        <ViewLayout></ViewLayout>
+        <SideBar />
+        <ViewLayout />
       </div>
-      <Footer></Footer>
+      <Footer />
     </div>
   </div>
 </template>
 
 <script>
-import NavBar from './navBar/NavBar'
-import SideBar from './sideBar/SideBar'
-import ViewLayout from './views/ViewLayout'
-import Footer from './footer/Footer'
+import NavBar from "./navBar/NavBar";
+import SideBar from "./sideBar/SideBar";
+import ViewLayout from "./views/ViewLayout";
+import Footer from "./footer/Footer";
 
 export default {
-  name: 'ReminderLayout',
+  name: "ReminderLayout",
   components: {
-    NavBar, SideBar, ViewLayout, Footer
-  },
-}
+    NavBar,
+    SideBar,
+    ViewLayout,
+    Footer
+  }
+};
 </script>
 
 <style lang="scss" scoped>

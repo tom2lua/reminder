@@ -6,13 +6,13 @@
 </template>
 
 <script>
-import CalendarTable from './calendarTable/CalendarTable'
+import CalendarTable from "./calendarTable/CalendarTable";
 export default {
-  name: 'CalendarLayout',
+  name: "CalendarLayout",
   components: {
     CalendarTable
   }
-}
+};
 </script>
 
 <style lang="scss">

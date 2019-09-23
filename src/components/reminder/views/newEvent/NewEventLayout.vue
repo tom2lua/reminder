@@ -1,19 +1,19 @@
 <template>
   <div>
     <div class="header">New Event</div>
-    <NewEventForm></NewEventForm>
+    <NewEventForm />
   </div>
 </template>
 
 <script>
-import NewEventForm from './newEventForm/NewEventForm'
+import NewEventForm from "./newEventForm/NewEventForm";
 
 export default {
-  name: 'NewEventLayout',
+  name: "NewEventLayout",
   components: {
     NewEventForm
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

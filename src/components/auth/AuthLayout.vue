@@ -2,7 +2,9 @@
   <div class="authContainer">
     <div class="logo">Reminder</div>
     <div class="columns is-gapless is-centered">
-      <div class="column is-full-mobile is-half-tablet is-5-desktop is-4-widescreen is-3-fullhd">
+      <div
+        class="column is-full-mobile is-half-tablet is-5-desktop is-4-widescreen is-3-fullhd"
+      >
         <router-view></router-view>
       </div>
     </div>
@@ -11,8 +13,8 @@
 
 <script>
 export default {
-  name: 'AuthLayout'
-}
+  name: "AuthLayout"
+};
 </script>
 
 <style lang="scss" scoped>

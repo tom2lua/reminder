@@ -1,17 +1,17 @@
 <template>
-  <div class="dayGrid">{{day.date}}</div>
+  <div class="dayGrid">{{ day.date }}</div>
 </template>
 
 <script>
 export default {
-  name: 'DayGrid',
+  name: "DayGrid",
   props: {
     day: {
       type: Object,
       required: true
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
