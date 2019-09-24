@@ -22,16 +22,16 @@
 
 <script>
 export default {
-  name: "SignUpForm",
+  name: 'SignUpForm',
   data() {
     return {
-      username: "",
-      password: "",
-      retypePassword: "",
-      email: ""
-    };
+      username: '',
+      password: '',
+      retypePassword: '',
+      email: ''
+    }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

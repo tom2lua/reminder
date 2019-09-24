@@ -9,11 +9,11 @@
 // import NewEventLayout from './newEvent/NewEventLayout'
 
 export default {
-  name: "ViewLayout",
+  name: 'ViewLayout',
   components: {
     // NewEventLayout
   }
-};
+}
 </script>
 
 <style lang="scss"></style>

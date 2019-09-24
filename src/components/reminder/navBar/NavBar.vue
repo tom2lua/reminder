@@ -25,13 +25,13 @@
 
 <script>
 export default {
-  name: "NavBar",
+  name: 'NavBar',
   data() {
     return {
       isActive: true
-    };
+    }
   }
-};
+}
 </script>
 
 <style lang="scss">

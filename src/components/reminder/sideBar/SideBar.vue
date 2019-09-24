@@ -7,13 +7,13 @@
 </template>
 
 <script>
-import SideBarLink from "./SideBarLink";
+import SideBarLink from './SideBarLink'
 export default {
-  name: "SideBar",
+  name: 'SideBar',
   components: {
     SideBarLink
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

@@ -12,24 +12,24 @@
 </template>
 
 <script>
-import NavBar from "./navBar/NavBar";
-import SideBar from "./sideBar/SideBar";
-import ViewLayout from "./views/ViewLayout";
-import Footer from "./footer/Footer";
+import NavBar from './navBar/NavBar'
+import SideBar from './sideBar/SideBar'
+import ViewLayout from './views/ViewLayout'
+import Footer from './footer/Footer'
 
 export default {
-  name: "ReminderLayout",
+  name: 'ReminderLayout',
   components: {
     NavBar,
     SideBar,
     ViewLayout,
     Footer
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "../../sass/abstracts/_variables";
+@import '../../sass/abstracts/_variables';
 
 .mainContainer {
   margin-top: 10vh !important;

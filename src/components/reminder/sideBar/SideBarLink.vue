@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "SideBarLink",
+  name: 'SideBarLink',
   props: {
     label: String,
     link: String
@@ -17,18 +17,18 @@ export default {
   data() {
     return {
       isActive: false
-    };
+    }
   },
   mounted() {
-    if (this.$route.fullPath.includes(this.link)) this.isActive = true;
+    if (this.$route.fullPath.includes(this.link)) this.isActive = true
   },
   watch: {
     $route() {
-      if (this.$route.fullPath.includes(this.link)) this.isActive = true;
-      else this.isActive = false;
+      if (this.$route.fullPath.includes(this.link)) this.isActive = true
+      else this.isActive = false
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

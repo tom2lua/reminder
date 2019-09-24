@@ -6,12 +6,12 @@
 
 <script>
 export default {
-  name: "App"
-};
+  name: 'App'
+}
 </script>
 
 <style lang="scss">
-@import "~bulma/sass/utilities/_all";
+@import '~bulma/sass/utilities/_all';
 
 html {
   overflow: scroll;
@@ -24,7 +24,7 @@ body {
   display: none;
 }
 #app {
-  font-family: "Ruluko", sans-serif;
+  font-family: 'Ruluko', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $background-color;

@@ -6,18 +6,18 @@
 </template>
 
 <script>
-import NewEventForm from "./newEventForm/NewEventForm";
+import NewEventForm from './newEventForm/NewEventForm'
 
 export default {
-  name: "NewEventLayout",
+  name: 'NewEventLayout',
   components: {
     NewEventForm
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
-@import "../../../../sass/abstracts/_variables.scss";
+@import '../../../../sass/abstracts/_variables.scss';
 .header {
   margin: 3vh 0vh;
   color: $primary-color;

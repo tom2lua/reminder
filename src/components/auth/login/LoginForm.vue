@@ -32,28 +32,28 @@
 
 <script>
 export default {
-  name: "LoginForm",
+  name: 'LoginForm',
   data() {
     return {
-      username: "",
-      password: "",
-      notiMessage: "",
+      username: '',
+      password: '',
+      notiMessage: '',
       notiActive: false
-    };
+    }
   },
   methods: {
     async login() {
-      await this.$store.dispatch("LOG_IN", {
+      await this.$store.dispatch('LOG_IN', {
         username: this.username,
         password: this.password
-      });
+      })
       if (!this.$store.state.authentication.authenticated) {
-        this.notiMessage = "Wrong Username or Password";
-        this.notiActive = true;
+        this.notiMessage = 'Wrong Username or Password'
+        this.notiActive = true
       }
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

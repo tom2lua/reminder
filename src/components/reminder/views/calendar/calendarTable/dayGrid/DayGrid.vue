@@ -4,14 +4,14 @@
 
 <script>
 export default {
-  name: "DayGrid",
+  name: 'DayGrid',
   props: {
     day: {
       type: Object,
       required: true
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

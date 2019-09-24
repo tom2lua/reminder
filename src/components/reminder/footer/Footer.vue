@@ -10,13 +10,13 @@
 
 <script>
 export default {
-  name: "Footer",
+  name: 'Footer',
   methods: {
     abc() {
-      console.log();
+      console.log()
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

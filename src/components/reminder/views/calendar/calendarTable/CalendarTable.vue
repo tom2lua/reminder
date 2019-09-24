@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import DayGrid from "./dayGrid/DayGrid";
+import DayGrid from './dayGrid/DayGrid'
 export default {
-  name: "CalendarTable",
+  name: 'CalendarTable',
   components: {
     DayGrid
   },
@@ -116,9 +116,9 @@ export default {
           date: 30
         }
       ]
-    };
+    }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
