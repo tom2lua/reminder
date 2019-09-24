@@ -25,12 +25,12 @@
 
 <script>
 export default {
-  name: 'NavBar',
-  data() {
-    return {
-      isActive: true
-    }
-  }
+	name: 'NavBar',
+	data() {
+		return {
+			isActive: true
+		}
+	}
 }
 </script>
 

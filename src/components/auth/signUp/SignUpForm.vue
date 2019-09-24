@@ -22,15 +22,15 @@
 
 <script>
 export default {
-  name: 'SignUpForm',
-  data() {
-    return {
-      username: '',
-      password: '',
-      retypePassword: '',
-      email: ''
-    }
-  }
+	name: 'SignUpForm',
+	data() {
+		return {
+			username: '',
+			password: '',
+			retypePassword: '',
+			email: ''
+		}
+	}
 }
 </script>
 

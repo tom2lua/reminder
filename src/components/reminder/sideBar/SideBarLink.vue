@@ -9,25 +9,25 @@
 
 <script>
 export default {
-  name: 'SideBarLink',
-  props: {
-    label: String,
-    link: String
-  },
-  data() {
-    return {
-      isActive: false
-    }
-  },
-  mounted() {
-    if (this.$route.fullPath.includes(this.link)) this.isActive = true
-  },
-  watch: {
-    $route() {
-      if (this.$route.fullPath.includes(this.link)) this.isActive = true
-      else this.isActive = false
-    }
-  }
+	name: 'SideBarLink',
+	props: {
+		label: String,
+		link: String
+	},
+	data() {
+		return {
+			isActive: false
+		}
+	},
+	mounted() {
+		if (this.$route.fullPath.includes(this.link)) this.isActive = true
+	},
+	watch: {
+		$route() {
+			if (this.$route.fullPath.includes(this.link)) this.isActive = true
+			else this.isActive = false
+		}
+	}
 }
 </script>
 

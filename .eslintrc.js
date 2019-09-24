@@ -1,21 +1,24 @@
 module.exports = {
-  root: true,
-  env: {
-    node: true
-  },
-  extends: [
-    'plugin:vue/essential',
-    'plugin:prettier/recommended',
-    'eslint:recommended'
-  ],
-  rules: {
-    'vue/component-name-in-template-casing': ['error', 'PascalCase'],
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    semi: ['error', 'never'],
-    quotes: [2, 'single', { avoidEscape: true }]
-  },
-  parserOptions: {
-    parser: 'babel-eslint'
-  }
+	env: {
+		browser: true,
+		es6: true,
+		node: true
+	},
+	extends: ['eslint:recommended', 'plugin:vue/essential'],
+	globals: {
+		Atomics: 'readonly',
+		SharedArrayBuffer: 'readonly'
+	},
+	parserOptions: {
+		ecmaVersion: 2018,
+		sourceType: 'module',
+		parser: 'babel-eslint'
+	},
+	plugins: ['vue'],
+	rules: {
+		indent: ['error', 'tab'],
+		'linebreak-style': ['error', 'windows'],
+		quotes: ['error', 'single'],
+		semi: ['error', 'never']
+	}
 }

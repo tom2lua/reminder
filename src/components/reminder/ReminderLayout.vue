@@ -18,13 +18,13 @@ import ViewLayout from './views/ViewLayout'
 import Footer from './footer/Footer'
 
 export default {
-  name: 'ReminderLayout',
-  components: {
-    NavBar,
-    SideBar,
-    ViewLayout,
-    Footer
-  }
+	name: 'ReminderLayout',
+	components: {
+		NavBar,
+		SideBar,
+		ViewLayout,
+		Footer
+	}
 }
 </script>
 

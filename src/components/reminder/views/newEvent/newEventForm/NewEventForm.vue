@@ -70,27 +70,27 @@
 
 <script>
 export default {
-  name: 'NewEventForm',
-  data() {
-    return {
-      eventName: '',
-      eventLocation: '',
-      eventStartTime: new Date(),
-      eventEndTime: new Date(),
-      eventPeople: { name: 'Tom', id: 1 },
-      eventDescription: '',
-      eventDate: new Date(),
-      eventRepeat: 'No Repeat',
+	name: 'NewEventForm',
+	data() {
+		return {
+			eventName: '',
+			eventLocation: '',
+			eventStartTime: new Date(),
+			eventEndTime: new Date(),
+			eventPeople: { name: 'Tom', id: 1 },
+			eventDescription: '',
+			eventDate: new Date(),
+			eventRepeat: 'No Repeat',
 
-      eventRepeatOptions: [
-        'No Repeat',
-        'Daily',
-        'Weekly',
-        'Monthly',
-        'Annually'
-      ]
-    }
-  }
+			eventRepeatOptions: [
+				'No Repeat',
+				'Daily',
+				'Weekly',
+				'Monthly',
+				'Annually'
+			]
+		}
+	}
 }
 </script>
 

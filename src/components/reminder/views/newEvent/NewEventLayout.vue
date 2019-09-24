@@ -9,10 +9,10 @@
 import NewEventForm from './newEventForm/NewEventForm'
 
 export default {
-  name: 'NewEventLayout',
-  components: {
-    NewEventForm
-  }
+	name: 'NewEventLayout',
+	components: {
+		NewEventForm
+	}
 }
 </script>
 

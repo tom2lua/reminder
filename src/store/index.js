@@ -6,13 +6,13 @@ import authentication from './modules/authentication'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  strict: true,
-  modules: {
-    authentication
-  },
-  state: {},
-  mutations: {},
-  actions: {}
+	strict: true,
+	modules: {
+		authentication
+	},
+	state: {},
+	mutations: {},
+	actions: {}
 })
 
 Vue.use(VuexI18n.plugin, store)

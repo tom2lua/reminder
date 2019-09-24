@@ -9,10 +9,10 @@
 <script>
 import SideBarLink from './SideBarLink'
 export default {
-  name: 'SideBar',
-  components: {
-    SideBarLink
-  }
+	name: 'SideBar',
+	components: {
+		SideBarLink
+	}
 }
 </script>
 

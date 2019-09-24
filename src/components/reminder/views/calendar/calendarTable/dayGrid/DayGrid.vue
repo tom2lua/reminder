@@ -4,13 +4,13 @@
 
 <script>
 export default {
-  name: 'DayGrid',
-  props: {
-    day: {
-      type: Object,
-      required: true
-    }
-  }
+	name: 'DayGrid',
+	props: {
+		day: {
+			type: Object,
+			required: true
+		}
+	}
 }
 </script>
 

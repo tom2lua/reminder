@@ -9,10 +9,10 @@
 // import NewEventLayout from './newEvent/NewEventLayout'
 
 export default {
-  name: 'ViewLayout',
-  components: {
-    // NewEventLayout
-  }
+	name: 'ViewLayout',
+	components: {
+		// NewEventLayout
+	}
 }
 </script>
 
