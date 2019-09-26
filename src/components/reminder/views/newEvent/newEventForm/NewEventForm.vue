@@ -35,12 +35,7 @@
         </b-field>
         <b-field label="Repeat" custom-class="has-text-primary">
           <b-select v-model="eventRepeat">
-            <option
-              v-for="option in eventRepeatOptions"
-              :key="option"
-              :value="option"
-              >{{ option }}</option
-            >
+            <option v-for="option in eventRepeatOptions" :key="option" :value="option">{{ option }}</option>
           </b-select>
         </b-field>
         <div class="buttons">
@@ -50,16 +45,11 @@
       </div>
       <div class="column is-5">
         <b-field label="Select a date" custom-class="has-text-primary">
-          <b-datepicker
-            v-model="eventDate"
-            :years-range="[0, 10]"
-            :nearby-month-days="true"
-            inline
-          ></b-datepicker>
+          <b-datepicker v-model="eventDate" :years-range="[0, 10]" :nearby-month-days="true" inline></b-datepicker>
         </b-field>
         <b>
           {{ eventDate.getDate() }}.{{ eventDate.getMonth() }}.{{
-            eventDate.getFullYear()
+          eventDate.getFullYear()
           }}
         </b>
       </div>
@@ -70,27 +60,27 @@
 
 <script>
 export default {
-	name: 'NewEventForm',
-	data() {
-		return {
-			eventName: '',
-			eventLocation: '',
-			eventStartTime: new Date(),
-			eventEndTime: new Date(),
-			eventPeople: { name: 'Tom', id: 1 },
-			eventDescription: '',
-			eventDate: new Date(),
-			eventRepeat: 'No Repeat',
+  name: 'NewEventForm',
+  data() {
+    return {
+      eventName: '',
+      eventLocation: '',
+      eventStartTime: new Date(),
+      eventEndTime: new Date(),
+      eventPeople: { name: 'Tom', id: 1 },
+      eventDescription: '',
+      eventDate: new Date(),
+      eventRepeat: 'No Repeat',
 
-			eventRepeatOptions: [
-				'No Repeat',
-				'Daily',
-				'Weekly',
-				'Monthly',
-				'Annually'
-			]
-		}
-	}
+      eventRepeatOptions: [
+        'No Repeat',
+        'Daily',
+        'Weekly',
+        'Monthly',
+        'Annually'
+      ]
+    }
+  }
 }
 </script>
 

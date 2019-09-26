@@ -2,35 +2,68 @@
   <div class="formContainer">
     <div class="columns is-gapless is-mobile is-centered">
       <div class="column is-10 is-10-mobile">
-        <b-field label="Username" custom-class="has-text-primary">
-          <b-input v-model="username"></b-input>
-        </b-field>
-        <b-field label="Password" custom-class="has-text-primary">
-          <b-input type="password" v-model="password"></b-input>
-        </b-field>
-        <b-field label="Re-type Password" custom-class="has-text-primary">
-          <b-input type="password" v-model="retypePassword"></b-input>
-        </b-field>
-        <b-field label="Email" custom-class="has-text-primary">
-          <b-input v-model="email"></b-input>
-        </b-field>
-        <b-button class="signUpButton" type="is-primary">Sign Up</b-button>
+        <ValidationObserver ref="observer" v-slot="{ passes }">
+          <BInputWithValidation
+            rules="required|alpha_num|min:6,Username|unique:username"
+            type="text"
+            label="Username"
+            v-model="username"
+          />
+          <BInputWithValidation
+            rules="required|min:8,Password"
+            type="password"
+            label="Password"
+            vid="password"
+            v-model="password"
+          />
+          <BInputWithValidation
+            rules="required|confirmed:password"
+            name="Password"
+            type="password"
+            label="Confirm Password"
+            v-model="confirmPassword"
+          />
+          <BInputWithValidation
+            rules="required|email|unique:email"
+            type="email"
+            label="Email"
+            v-model="email"
+          />
+
+          <b-button class="signUpButton" type="is-primary" v-on:click="passes(signUp)">Sign Up</b-button>
+        </ValidationObserver>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import BInputWithValidation from '../../inputs/BInputWithValidation'
+import { ValidationObserver } from 'vee-validate'
+
 export default {
-	name: 'SignUpForm',
-	data() {
-		return {
-			username: '',
-			password: '',
-			retypePassword: '',
-			email: ''
-		}
-	}
+  name: 'SignUpForm',
+  components: {
+    BInputWithValidation,
+    ValidationObserver
+  },
+  data() {
+    return {
+      username: '',
+      password: '',
+      confirmPassword: '',
+      email: ''
+    }
+  },
+  methods: {
+    signUp() {
+      this.$store.dispatch('SIGN_UP', {
+        username: this.username,
+        password: this.password,
+        email: this.email
+      })
+    }
+  }
 }
 </script>
 

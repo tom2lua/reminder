@@ -10,12 +10,12 @@
 
 <script>
 export default {
-	name: 'Footer',
-	methods: {
-		abc() {
-			console.log()
-		}
-	}
+  name: 'Footer',
+  methods: {
+    abc() {
+      console.log()
+    }
+  }
 }
 </script>
 

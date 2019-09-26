@@ -8,10 +8,10 @@
 <script>
 import CalendarTable from './calendarTable/CalendarTable'
 export default {
-	name: 'CalendarLayout',
-	components: {
-		CalendarTable
-	}
+  name: 'CalendarLayout',
+  components: {
+    CalendarTable
+  }
 }
 </script>
 

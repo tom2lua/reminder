@@ -15,7 +15,9 @@
         </div>
         <div class="level-item has-text-centered">
           <div>
-            <div class="navBarMenu">Logout</div>
+            <div v-on:click="logout" class="navBarMenu">
+              <router-link :to="{name: 'login'}">Logout</router-link>
+            </div>
           </div>
         </div>
       </nav>
@@ -25,12 +27,18 @@
 
 <script>
 export default {
-	name: 'NavBar',
-	data() {
-		return {
-			isActive: true
-		}
-	}
+  name: 'NavBar',
+  data() {
+    return {
+      isActive: true
+    }
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem('loggedInUser')
+      this.$store.commit('logout')
+    }
+  }
 }
 </script>
 

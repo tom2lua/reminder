@@ -6,7 +6,16 @@
 
 <script>
 export default {
-	name: 'App'
+  name: 'App',
+  created() {
+    const userFromLocalStorage = JSON.parse(
+      localStorage.getItem('loggedInUser')
+    )
+    if (userFromLocalStorage) {
+      this.$store.commit('setUser', userFromLocalStorage)
+      this.$router.push({ name: 'calendar' })
+    }
+  }
 }
 </script>
 

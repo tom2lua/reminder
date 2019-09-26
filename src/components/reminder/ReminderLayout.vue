@@ -1,7 +1,7 @@
 <template>
   <div class="columns is-gapless is-centered">
     <div class="column is-8-fullhd mainContainer">
-      <NavBar />>
+      <NavBar />
       <div class="columns is-gapless">
         <SideBar />
         <ViewLayout />
@@ -18,13 +18,13 @@ import ViewLayout from './views/ViewLayout'
 import Footer from './footer/Footer'
 
 export default {
-	name: 'ReminderLayout',
-	components: {
-		NavBar,
-		SideBar,
-		ViewLayout,
-		Footer
-	}
+  name: 'ReminderLayout',
+  components: {
+    NavBar,
+    SideBar,
+    ViewLayout,
+    Footer
+  }
 }
 </script>
 
