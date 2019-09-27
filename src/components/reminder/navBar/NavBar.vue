@@ -15,9 +15,7 @@
         </div>
         <div class="level-item has-text-centered">
           <div>
-            <div v-on:click="logout" class="navBarMenu">
-              <router-link :to="{name: 'login'}">Logout</router-link>
-            </div>
+            <div v-on:click="logout" class="navBarMenu">Logout</div>
           </div>
         </div>
       </nav>
@@ -35,8 +33,9 @@ export default {
   },
   methods: {
     logout() {
-      localStorage.removeItem('loggedInUser')
       this.$store.commit('logout')
+      localStorage.removeItem('loggedInUser')
+      this.$router.push({ name: 'login' })
     }
   }
 }
@@ -57,6 +56,10 @@ export default {
   font-size: 1.5vw;
   width: 10vw;
   color: $primary-color;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 .navbar-menu {
   margin-right: 0px !important;

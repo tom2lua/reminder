@@ -32,6 +32,10 @@
 
           <b-button class="signUpButton" type="is-primary" v-on:click="passes(signUp)">Sign Up</b-button>
         </ValidationObserver>
+        <div class>
+          Already have an account? Login
+          <router-link :to="{name: 'login'}">here</router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -77,6 +81,6 @@ export default {
   margin: 0;
 }
 .signUpButton {
-  margin-top: 30px;
+  margin: 30px 0px 20px 0px;
 }
 </style>

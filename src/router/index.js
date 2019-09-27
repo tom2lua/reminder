@@ -62,7 +62,7 @@ router.beforeEach((to, from, next) => {
   if (authRequired && !loggedIn) {
     return next('/auth/login')
   } else if (loggedIn && !authRequired) {
-    return next('/reminder/calendar')
+    return next(from.path)
   }
   next()
 })

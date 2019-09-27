@@ -20,7 +20,7 @@
         <b-button type="is-primary" @click="login">Login</b-button>
         <p class="registerText">
           Doesn't have an account yet? Join us
-          <router-link :to="{ name: 'signUp' }">now!</router-link>
+          <router-link :to="{ name: 'signUp' }">now</router-link>
         </p>
       </div>
     </div>

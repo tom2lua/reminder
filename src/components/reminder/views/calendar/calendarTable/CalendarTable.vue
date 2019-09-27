@@ -1,13 +1,7 @@
 <template>
   <div class="calendarContainer">
     <div class="headingContainer">
-      <div class="dayGridItem">Monday</div>
-      <div class="dayGridItem">Tuesday</div>
-      <div class="dayGridItem">Wednesday</div>
-      <div class="dayGridItem">Thursday</div>
-      <div class="dayGridItem">Friday</div>
-      <div class="dayGridItem">Saturday</div>
-      <div class="dayGridItem">Sunday</div>
+      <div v-for="(name, index) in dayNames" :key="index" class="dayGridItem">{{name}}</div>
     </div>
     <div class="daysContainer">
       <DayGrid v-for="(day, index) in days" :key="index" :day="day"></DayGrid>
@@ -22,100 +16,45 @@ export default {
   components: {
     DayGrid
   },
+  props: {
+    year: {
+      type: Number,
+      required: true
+    },
+    month: {
+      type: Number,
+      required: true
+    }
+  },
   data() {
     return {
-      days: [
-        {
-          date: 1
-        },
-        {
-          date: 2
-        },
-        {
-          date: 3
-        },
-        {
-          date: 4
-        },
-        {
-          date: 5
-        },
-        {
-          date: 6
-        },
-        {
-          date: 7
-        },
-        {
-          date: 8
-        },
-        {
-          date: 9
-        },
-        {
-          date: 10
-        },
-        {
-          date: 11
-        },
-        {
-          date: 12
-        },
-        {
-          date: 13
-        },
-        {
-          date: 14
-        },
-        {
-          date: 15
-        },
-        {
-          date: 16
-        },
-        {
-          date: 17
-        },
-        {
-          date: 18
-        },
-        {
-          date: 19
-        },
-        {
-          date: 20
-        },
-        {
-          date: 21
-        },
-        {
-          date: 22
-        },
-        {
-          date: 23
-        },
-        {
-          date: 24
-        },
-        {
-          date: 25
-        },
-        {
-          date: 26
-        },
-        {
-          date: 27
-        },
-        {
-          date: 28
-        },
-        {
-          date: 29
-        },
-        {
-          date: 30
-        }
-      ]
+      dayNames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      days: []
+    }
+  },
+  methods: {
+    setDays() {
+      const firstDayOfMonth = new Date(this.year, this.month).getDay()
+      const daysInMonth = new Date(this.year, this.month + 1, 0).getDate()
+      const daySlots = 42
+      this.days = []
+      for (let i = 1; i <= daySlots; i++) {
+        this.days.push({
+          date: new Date(this.year, this.month, i - firstDayOfMonth),
+          otherMonths:
+            i <= firstDayOfMonth || i > firstDayOfMonth + daysInMonth
+              ? true
+              : false
+        })
+      }
+    }
+  },
+  created() {
+    this.setDays()
+  },
+  watch: {
+    month(newValue, oldValue) {
+      if (newValue !== oldValue) this.setDays()
     }
   }
 }
@@ -125,25 +64,25 @@ export default {
 .calendarContainer {
   width: calc(100% - 6vh);
   margin: 0 3vh 3vh 3vh;
-  padding: 0px 5px 5px 5px;
-  background-color: $primary-color;
+  background-color: white;
 }
 .headingContainer {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
 .dayGridItem {
-  background-color: $primary-color;
-  border: 1px solid $primary-color;
+  background-color: white;
   height: 3vw;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.3vw;
-  color: white;
+  color: $primary-color;
+  font-weight: bold;
 }
 .daysContainer {
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto;
+  gap: 1px;
 }
 </style>

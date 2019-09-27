@@ -1,5 +1,7 @@
 <template>
-  <div class="dayGrid">{{ day.date }}</div>
+  <div class="dayGrid" :class="{otherMonthGrid: day.otherMonths}">
+    <div class="dayNumber">{{ day.date.getDate() }}</div>
+  </div>
 </template>
 
 <script>
@@ -16,17 +18,26 @@ export default {
 
 <style lang="scss" scoped>
 .dayGrid {
-  background-color: $background-color;
-  border: 1px solid $primary-color;
-  height: 3vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: white;
+  height: 3.7vw;
+  position: relative;
   font-size: 1.5vw;
-  color: white;
+  color: $primary-color;
+  border: 1px solid $primary-color;
+  border-collapse: collapse;
   &:hover {
     cursor: pointer;
-    background-color: $secondary-color;
+    color: white;
+    background-color: $background-color;
   }
+}
+.otherMonthGrid {
+  background-color: rgb(202, 202, 202);
+}
+.dayNumber {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+  font-weight: bold;
 }
 </style>
