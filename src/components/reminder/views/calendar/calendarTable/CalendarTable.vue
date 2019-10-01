@@ -4,12 +4,13 @@
       <div v-for="(name, index) in dayNames" :key="index" class="dayGridItem">{{name}}</div>
     </div>
     <div class="daysContainer">
-      <DayGrid v-for="(day, index) in days" :key="index" :day="day"></DayGrid>
+      <DayGrid v-for="(day, index) in days" :key="index" :day="day" v-on:select-day="selectDay"></DayGrid>
     </div>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
 import DayGrid from './dayGrid/DayGrid'
 export default {
   name: 'CalendarTable',
@@ -39,14 +40,52 @@ export default {
       const daySlots = 42
       this.days = []
       for (let i = 1; i <= daySlots; i++) {
+        const date = new Date(this.year, this.month, i - firstDayOfMonth)
+        const events = this.findEvents(date)
+
         this.days.push({
-          date: new Date(this.year, this.month, i - firstDayOfMonth),
+          date,
           otherMonths:
             i <= firstDayOfMonth || i > firstDayOfMonth + daysInMonth
               ? true
-              : false
+              : false,
+          events: events ? events : null
         })
       }
+    },
+    findEvents(date) {
+      const events = this.$store.state.events.events.filter(event => {
+        //Exclude Daily Events:
+        if (event.repeatOption != 'Daily') {
+          const eventDate = new Date(event.date)
+          eventDate.setHours(0, 0, 0, 0)
+
+          if (event.repeatOption == 'No Repeat')
+            return eventDate.getTime() === date.getTime()
+          else
+            return this.checkRepeatOption(date, eventDate, event.repeatOption)
+        }
+        return false
+      })
+      return events
+    },
+    checkRepeatOption(date, eventDate, repeatOption) {
+      switch (repeatOption) {
+        case 'Weekly':
+          return date.getDay() === eventDate.getDay()
+        case 'Monthly':
+          return date.getDate() === eventDate.getDate()
+        case 'Annually':
+          return (
+            date.getDate() === eventDate.getDate() &&
+            date.getMonth() === eventDate.getMonth()
+          )
+        default:
+          return false
+      }
+    },
+    selectDay(day) {
+      this.$emit('select-day', day)
     }
   },
   created() {

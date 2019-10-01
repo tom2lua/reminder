@@ -53,7 +53,7 @@ const router = new Router({
   ]
 })
 
-router.beforeEach((to, from, next) => {
+router.beforeResolve((to, from, next) => {
   // redirect to login page if not logged in and trying to access a restricted page
   const publicPages = ['/auth/login', '/auth/signUp']
   const authRequired = !publicPages.includes(to.path)
@@ -62,7 +62,7 @@ router.beforeEach((to, from, next) => {
   if (authRequired && !loggedIn) {
     return next('/auth/login')
   } else if (loggedIn && !authRequired) {
-    return next(from.path)
+    return next('/reminder/calendar')
   }
   next()
 })

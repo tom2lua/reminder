@@ -16,7 +16,7 @@ module.exports = {
   },
   plugins: ['vue'],
   rules: {
-    indent: ['error', 2],
+    indent: [2, 2],
     'linebreak-style': ['error', 'windows'],
     quotes: ['error', 'single'],
     semi: ['error', 'never']

@@ -71,9 +71,11 @@ export default {
   margin: 2.5vh 0;
   text-align: center;
   color: $primary-color;
-  font-weight: bold;
 }
 .arrowIcon:hover {
   cursor: pointer;
+}
+.arrowIcon {
+  transform: scale(0.7, 0.7);
 }
 </style>

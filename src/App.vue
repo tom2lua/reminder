@@ -1,19 +1,45 @@
 <template>
   <div id="app">
-    <router-view />
+    <router-view :loading="loading" />
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'App',
+  data() {
+    return {
+      loading: true
+    }
+  },
   created() {
     const userFromLocalStorage = JSON.parse(
       localStorage.getItem('loggedInUser')
     )
     if (userFromLocalStorage) {
       this.$store.commit('setUser', userFromLocalStorage)
-      this.$router.push({ name: 'calendar' })
+      // this.$router.push({ name: 'calendar' })
+    }
+  },
+  computed: {
+    ...mapState({
+      user: state => state.authentication.user
+    })
+  },
+  watch: {
+    async user() {
+      if (this.user) {
+        await this.initStores()
+      }
+    }
+  },
+  methods: {
+    async initStores() {
+      await this.$store.dispatch('FETCH_EVENTS')
+      await this.$store.dispatch('FETCH_EVENT_TYPES')
+      this.loading = false
     }
   }
 }
