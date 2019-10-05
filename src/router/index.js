@@ -34,6 +34,11 @@ const router = new Router({
       component: lazyLoading('reminder/ReminderLayout'),
       children: [
         {
+          name: 'dashboard',
+          path: 'dashboard',
+          component: lazyLoading('reminder/views/dashboard/DashboardLayout')
+        },
+        {
           name: 'newEvent',
           path: 'newEvent',
           component: lazyLoading('reminder/views/newEvent/NewEventLayout')

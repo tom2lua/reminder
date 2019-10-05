@@ -11,11 +11,7 @@
 <script>
 export default {
   name: 'Footer',
-  methods: {
-    abc() {
-      console.log()
-    }
-  }
+  methods: {}
 }
 </script>
 
@@ -26,6 +22,9 @@ export default {
   height: 10vh;
   background-color: $secondary-color;
   color: black;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 a {
   color: white;

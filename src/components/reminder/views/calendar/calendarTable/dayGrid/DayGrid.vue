@@ -1,7 +1,7 @@
 <template>
   <div
     class="dayGrid"
-    :class="{otherMonthGrid: day.otherMonths, haveEvent: day.events.length > 0}"
+    :class="{ otherMonthGrid: day.otherMonths, haveEvent: day.events.length > 0, todayGrid: isToday() }"
     v-on:click="selectDay(day)"
   >
     <div v-if="day.events.length > 0" class="eventBar">
@@ -40,6 +40,16 @@ export default {
         return 'list-ol'
       }
       return this.day.events[0].eventType.iconClass
+    },
+    isToday() {
+      const today = new Date()
+      if (
+        today.getFullYear() === this.day.date.getFullYear() &&
+        today.getMonth() === this.day.date.getMonth() &&
+        today.getDate() === this.day.date.getDate()
+      )
+        return true
+      return false
     },
     initData() {
       this.uniqueEventTypes = []
@@ -82,8 +92,12 @@ export default {
   }
 }
 .otherMonthGrid {
-  background-color: #c5b0ff;
+  background-color: #e4daff;
   color: rgb(88, 88, 88);
+}
+.todayGrid {
+  background-color: $primary-color;
+  color: white;
 }
 .haveEvent {
   background-color: #f1e0d6;

@@ -1,13 +1,15 @@
 <template>
   <div>
-    <div v-if="!loading" class="columns is-gapless is-centered">
-      <div class="column is-8-fullhd mainContainer">
-        <NavBar />
-        <div class="columns is-gapless">
-          <SideBar />
-          <ViewLayout />
+    <div v-if="!loading">
+      <div class="columns is-gapless is-centered">
+        <div class="column is-8-fullhd mainContainer">
+          <NavBar />
+          <div class="columns is-gapless contentContainer">
+            <SideBar />
+            <ViewLayout />
+          </div>
+          <Footer />
         </div>
-        <Footer />
       </div>
     </div>
     <b-loading v-else :is-full-page="true" :active.sync="loading"></b-loading>
@@ -41,6 +43,10 @@ export default {
   margin-top: 10vh !important;
   min-height: 90vh;
   background-color: white;
+  position: relative;
+}
+.contentContainer {
+  min-height: calc(100vh - 10vh - 8vw);
 }
 .divider {
   background-color: $secondary-color;

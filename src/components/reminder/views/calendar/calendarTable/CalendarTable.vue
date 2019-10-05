@@ -62,8 +62,11 @@ export default {
 
           if (event.repeatOption == 'No Repeat')
             return eventDate.getTime() === date.getTime()
-          else
-            return this.checkRepeatOption(date, eventDate, event.repeatOption)
+          else {
+            if (eventDate.getTime() <= date.getTime())
+              return this.checkRepeatOption(date, eventDate, event.repeatOption)
+            else return false
+          }
         }
         return false
       })

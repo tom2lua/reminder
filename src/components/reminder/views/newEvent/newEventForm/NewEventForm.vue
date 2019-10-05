@@ -56,10 +56,12 @@
           <b-button type="is-secondary" v-on:click="resetInputs">Reset</b-button>
         </div>
       </div>
-      <div class="column is-5">
-        <b-field label="Select a date" custom-class="has-text-primary">
-          <b-datepicker v-model="date" :years-range="[0, 10]" :nearby-month-days="true" inline></b-datepicker>
-        </b-field>
+      <div class="column is-6">
+        <div class="columns is-centered">
+          <b-field label="Select a date" custom-class="has-text-primary">
+            <b-datepicker v-model="date" :years-range="[0, 10]" :nearby-month-days="true" inline></b-datepicker>
+          </b-field>
+        </div>
       </div>
     </div>
     <b-notification

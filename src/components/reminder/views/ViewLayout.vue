@@ -1,19 +1,17 @@
 <template>
   <div class="column is-9">
-    <router-view></router-view>
-    <!-- <NewEventLayout></NewEventLayout> -->
+    <router-view class="viewContainer"></router-view>
   </div>
 </template>
 
 <script>
-// import NewEventLayout from './newEvent/NewEventLayout'
-
 export default {
-  name: 'ViewLayout',
-  components: {
-    // NewEventLayout
-  }
+  name: 'ViewLayout'
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.viewContainer {
+  margin-bottom: 13vh;
+}
+</style>

@@ -3,7 +3,6 @@
     <div v-if="showCalendar">
       <MonthPicker :month="month" :year="year" v-on:change-month-and-year="setMonthAndYear"></MonthPicker>
       <CalendarTable :month="month" :year="year" v-on:select-day="setSelectDay"></CalendarTable>
-      <DailyEventList></DailyEventList>
     </div>
     <DayDetail v-else :selectDay="selectDay" v-on:show-calendar="showCalendar = !showCalendar"></DayDetail>
   </div>
@@ -12,7 +11,6 @@
 <script>
 import MonthPicker from './monthPicker/MonthPicker'
 import CalendarTable from './calendarTable/CalendarTable'
-import DailyEventList from './dailyEventList/DailyEventList'
 import DayDetail from './dayDetails/DayDetails'
 
 export default {
@@ -20,8 +18,7 @@ export default {
   components: {
     MonthPicker,
     CalendarTable,
-    DayDetail,
-    DailyEventList
+    DayDetail
   },
   data() {
     return {

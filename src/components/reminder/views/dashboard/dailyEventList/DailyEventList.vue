@@ -1,24 +1,21 @@
 <template>
-  <div v-if="dailyEvents.length > 0" class="dailyEventsContainer">
+  <div class="dailyEventsContainer">
     <div class="label">Daily Events:</div>
-    <div></div>
-    <div class="eventsContainer">
-      <EventCard
-        v-for="(event) in dailyEvents"
-        :key="event.id"
-        :event="event"
-        :isDailyEventCard="true"
-      ></EventCard>
+    <div v-if="dailyEvents.length > 0" class="eventsContainer">
+      <DailyEventCard v-for="(event) in dailyEvents" :key="event.id" :event="event"></DailyEventCard>
     </div>
+    <p v-else>You have no Event daily event yet, create one here</p>
   </div>
 </template>
 
 <script>
-import EventCard from '../dayDetails/eventCard/EventCard'
+// import EventCard from '../../calendar/dayDetails/eventCard/EventCard'
+import DailyEventCard from '../../../cards/DailyEventCard'
 export default {
   name: 'DailyEventList',
   components: {
-    EventCard
+    // EventCard,
+    DailyEventCard
   },
   data() {
     return {
@@ -40,16 +37,16 @@ export default {
 
 <style lang="scss" scoped>
 .label {
-  text-align: center;
-  font-size: 2rem;
+  text-align: left;
+  font-size: 1.5rem;
   color: $primary-color;
 }
 .dailyEventsContainer {
-  margin: 3vh;
+  margin: calc(3vh + 10px) 3vh 3vh 0;
 }
 .eventsContainer {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto;
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }
