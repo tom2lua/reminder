@@ -38,7 +38,9 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../sass/abstracts/_variables';
-
+.columns {
+  margin-bottom: 0 !important;
+}
 .mainContainer {
   margin-top: 10vh !important;
   min-height: 90vh;

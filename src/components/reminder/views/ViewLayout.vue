@@ -12,6 +12,6 @@ export default {
 
 <style lang="scss" scoped>
 .viewContainer {
-  margin-bottom: 13vh;
+  margin-bottom: 4vh;
 }
 </style>

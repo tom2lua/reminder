@@ -21,6 +21,14 @@ export default {
       console.log('New Event:', payload)
       state.events.push(payload)
     },
+    updateEvent(state, payload) {
+      state.events = state.events.map(event => {
+        return event.id === payload.id ? payload : event
+      })
+    },
+    deleteEvent(state, payload) {
+      state.events = state.events.filter(event => event.id !== payload)
+    },
     setEventTypes(state, payload) {
       console.log('Event Types:', payload)
       state.eventTypes = payload
@@ -62,6 +70,29 @@ export default {
         })
       } catch (error) {
         console.error(error.response)
+      }
+    },
+    async UPDATE_EVENT(context, payload) {
+      try {
+        const updatedEvent = await axios.put(
+          `${baseUrl}/events/${payload.id}`,
+          payload
+        )
+        console.log('Updated Event:', updatedEvent.data)
+        context.commit('updateEvent', updatedEvent.data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async DELETE_EVENT(context, payload) {
+      const config = getBearerConfig(context)
+      try {
+        await axios.delete(`${baseUrl}/events/${payload.id}`, config)
+        console.log('Event deleted')
+
+        context.commit('deleteEvent', payload.id)
+      } catch (error) {
+        console.error(error)
       }
     },
     async FETCH_EVENT_TYPES({ commit }) {

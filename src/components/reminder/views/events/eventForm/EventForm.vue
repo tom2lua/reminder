@@ -1,5 +1,7 @@
 <template>
   <div>
+    <div v-if="!editMode" class="header">New Event</div>
+    <div v-else class="header">Modify Your Event</div>
     <div class="columns formContainer">
       <div class="column is-5 is-offset-1">
         <b-field
@@ -51,9 +53,13 @@
           </b-field>
         </div>
 
-        <div class="buttons">
+        <div v-if="!editMode" class="buttons">
           <b-button class="button" type="is-primary" v-on:click="createEvent">Create</b-button>
           <b-button type="is-secondary" v-on:click="resetInputs">Reset</b-button>
+        </div>
+        <div v-else class="buttons">
+          <b-button class="button" type="is-primary" v-on:click="updateEvent">Confirm</b-button>
+          <b-button type="is-secondary" v-on:click="cancelEventModify">Cancel</b-button>
         </div>
       </div>
       <div class="column is-6">
@@ -79,16 +85,17 @@ export default {
     return {
       name: '',
       location: '',
-      startTime: 0,
-      endTime: 0,
+      startTime: '',
+      endTime: '',
       description: '',
-      date: new Date(),
+      date: '',
       repeatOption: 'No Repeat',
       repeatOptions: ['No Repeat', 'Daily', 'Weekly', 'Monthly', 'Annually'],
       eventType: '',
       eventTypes: [],
       eventNameMessObject: {},
-      notificationObject: { active: false }
+      notificationObject: { active: false },
+      editMode: false
     }
   },
   methods: {
@@ -128,19 +135,49 @@ export default {
       this.repeatOption = 'No Repeat'
     },
     initTimes() {
-      this.startTime = this.endTime = new Date(
-        this.date.getFullYear(),
-        this.date.getMonth(),
-        this.date.getDate(),
-        0,
-        0,
-        0,
-        0
-      )
+      this.startTime = this.endTime = this.date = new Date()
+      this.startTime.setHours(0, 0, 0, 0)
+      this.endTime.setHours(0, 0, 0, 0)
+      this.date.setHours(0, 0, 0, 0)
     },
     initData() {
       this.eventTypes = this.$store.state.events.eventTypes
       this.eventType = this.eventTypes.find(type => type.name === 'General')
+
+      if (this.$route.params.id) {
+        this.editMode = true
+        this.initEvent()
+      }
+    },
+    initEvent() {
+      const event = this.$store.state.events.events.find(
+        event => event.id === this.$route.params.id
+      )
+      this.name = event.name
+      this.location = event.location
+      this.startTime = new Date(event.startTime)
+      this.endTime = new Date(event.endTime)
+      this.description = event.description
+      this.date = new Date(event.date)
+      this.repeatOption = event.repeatOption
+      this.eventType = event.eventType
+    },
+    updateEvent() {
+      const eventObject = {
+        name: this.name,
+        location: this.location,
+        startTime: this.startTime,
+        endTime: this.endTime,
+        description: this.description,
+        date: this.date,
+        repeatOption: this.repeatOption,
+        eventType: this.eventType,
+        id: this.$route.params.id
+      }
+      this.$store.dispatch('UPDATE_EVENT', { ...eventObject })
+    },
+    cancelEventModify() {
+      this.$router.go(-1)
     }
   },
   created() {
@@ -188,5 +225,11 @@ export default {
 }
 .button {
   margin-right: 10px;
+}
+.header {
+  margin: 3vh 0vh;
+  color: $primary-color;
+  font-size: $header-font-size;
+  text-align: center;
 }
 </style>

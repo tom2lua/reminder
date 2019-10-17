@@ -1,4 +1,10 @@
-import { required, confirmed, email, alpha_num } from 'vee-validate/dist/rules'
+import {
+  required,
+  confirmed,
+  email,
+  alpha_num,
+  alpha_spaces
+} from 'vee-validate/dist/rules'
 import { extend } from 'vee-validate'
 import axios from 'axios'
 
@@ -31,6 +37,11 @@ extend('min', {
 extend('alpha_num', {
   ...alpha_num,
   message: 'This field can only contain letters and numbers'
+})
+
+extend('alpha_spaces', {
+  ...alpha_spaces,
+  message: 'This field can only contain letters'
 })
 
 extend('unique', {

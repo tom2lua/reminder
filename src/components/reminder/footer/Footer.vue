@@ -23,7 +23,7 @@ export default {
   background-color: $secondary-color;
   color: black;
   width: 100%;
-  position: absolute;
+  position: relative;
   bottom: 0;
 }
 a {

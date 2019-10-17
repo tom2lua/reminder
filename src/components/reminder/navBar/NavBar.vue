@@ -10,7 +10,7 @@
       <nav class="level">
         <div class="level-item has-text-centered">
           <div>
-            <div class="navBarMenu">Nguyen</div>
+            <router-link :to="{name: 'userInfo'}" class="navBarMenu">{{firstName}}</router-link>
           </div>
         </div>
         <div class="level-item has-text-centered">
@@ -28,7 +28,8 @@ export default {
   name: 'NavBar',
   data() {
     return {
-      isActive: true
+      isActive: true,
+      firstName: ''
     }
   },
   methods: {
@@ -37,6 +38,9 @@ export default {
       localStorage.removeItem('loggedInUser')
       this.$router.push({ name: 'login' })
     }
+  },
+  created() {
+    this.firstName = this.$store.state.authentication.user.firstName
   }
 }
 </script>

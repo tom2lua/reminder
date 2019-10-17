@@ -39,9 +39,26 @@ const router = new Router({
           component: lazyLoading('reminder/views/dashboard/DashboardLayout')
         },
         {
+          name: 'events',
+          path: 'events',
+          component: lazyLoading('reminder/views/events/eventList/EventList')
+        },
+        {
+          name: 'modifyEvent',
+          path: 'modifyEvent/:id',
+          component: lazyLoading('reminder/views/events/eventForm/EventForm')
+        },
+        {
           name: 'newEvent',
           path: 'newEvent',
-          component: lazyLoading('reminder/views/newEvent/NewEventLayout')
+          component: lazyLoading('reminder/views/events/eventForm/EventForm')
+        },
+        {
+          name: 'eventDetail',
+          path: 'eventDetail/:id',
+          component: lazyLoading(
+            'reminder/views/events/eventDetail/EventDetail'
+          )
         },
         {
           name: 'calendar',
@@ -52,6 +69,25 @@ const router = new Router({
           name: 'settings',
           path: 'settings',
           component: lazyLoading('reminder/views/settings/SettingsLayout')
+        },
+        {
+          name: 'user',
+          path: 'user',
+          component: lazyLoading('reminder/views/user/UserView'),
+          children: [
+            {
+              name: 'editProfile',
+              path: 'editProfile',
+              component: lazyLoading('reminder/views/user/userForm/UserForm')
+            },
+            {
+              name: 'userInfo',
+              path: 'userInfo',
+              component: lazyLoading(
+                'reminder/views/user/userInfoView/UserInfoView'
+              )
+            }
+          ]
         }
       ]
     }

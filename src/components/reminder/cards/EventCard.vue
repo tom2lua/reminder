@@ -17,7 +17,7 @@
         ></b-icon>
         <span class="eventName detailText">{{event.name}}</span>
         <div>
-          <b-tooltip label="Event Date" type="is-light" position="is-right">
+          <b-tooltip label="Initial Date" type="is-light" position="is-right">
             <div>
               <b-icon pack="fas" icon="calendar-alt" size="is-small"></b-icon>
               <span class="eventDate detailText">{{getDateString()}}</span>
@@ -108,55 +108,10 @@ export default {
   },
   methods: {
     getDateString() {
-      const initialDate = new Date(this.event.date)
-
-      const ealiestEventDate = this.getEaliestEventDate(this.event)
-      return this.getDayString(ealiestEventDate)
-        ? this.getDayString(ealiestEventDate)
-        : `${ealiestEventDate.getDate()}${this.getOrdinalNumber(
-            ealiestEventDate.getDate()
-          )} ${
-            this.monthNames[ealiestEventDate.getMonth()]
-          }, ${ealiestEventDate.getFullYear()}`
-    },
-    getDayString(eventDate) {
-      const oneDayInMiliseconds = 86400000
-      const today = new Date()
-      const endOfThisWeek = new Date()
-      const endOfNextWeek = new Date()
-
-      today.setHours(0, 0, 0, 0)
-      endOfThisWeek.setHours(0, 0, 0, 0)
-      endOfNextWeek.setHours(0, 0, 0, 0)
-
-      endOfThisWeek.setDate(
-        endOfThisWeek.getDate() + 6 - endOfThisWeek.getDay()
-      )
-      endOfNextWeek.setDate(
-        endOfNextWeek.getDate() + 13 - endOfNextWeek.getDay()
-      )
-
-      const eventDateTimeDiff = eventDate.getTime() - today.getTime()
-      const thisWeekTimeDiff = endOfThisWeek.getTime() - today.getTime()
-      const nextWeekTimeDiff = endOfNextWeek.getTime() - today.getTime()
-
-      if (eventDateTimeDiff === 0) {
-        return 'Today'
-      } else if (eventDateTimeDiff === oneDayInMiliseconds) {
-        return 'Tomorrow'
-      } else if (eventDateTimeDiff === 2 * oneDayInMiliseconds) {
-        return 'The day after tomorrow'
-      } else if (
-        eventDateTimeDiff > 2 * oneDayInMiliseconds &&
-        eventDateTimeDiff <= thisWeekTimeDiff
-      )
-        return `This ${this.dayNames[eventDate.getDay()]}`
-      else if (
-        eventDateTimeDiff > thisWeekTimeDiff &&
-        eventDateTimeDiff <= nextWeekTimeDiff
-      )
-        return `Next ${this.dayNames[eventDate.getDay()]}`
-      else return false
+      const date = new Date(this.event.date)
+      return `${date.getDate()}${this.getOrdinalNumber(date.getDate())} ${
+        this.monthNames[date.getMonth()]
+      }, ${date.getFullYear()}`
     },
     getTimeString(inputTime) {
       const time = new Date(inputTime)
@@ -172,38 +127,6 @@ export default {
       if (number % 10 === 1) return 'st'
       else if (number % 10 === 2) return 'nd'
       else return 'th'
-    },
-    getEaliestEventDate(event) {
-      const eventDate = new Date(event.date)
-      const returnDate = new Date()
-      returnDate.setHours(0, 0, 0, 0)
-      switch (event.repeatOption) {
-        case 'Weekly':
-          //Check if initial eventDate is passed
-          if (eventDate.getTime() > returnDate.getTime()) return eventDate
-          //Change date to next week if already pass this week
-          if (eventDate.getDay() >= returnDate.getDay())
-            returnDate.setDate(
-              returnDate.getDate() + eventDate.getDay() - returnDate.getDay()
-            )
-          else
-            returnDate.setDate(
-              returnDate.getDate() +
-                7 +
-                eventDate.getDay() -
-                returnDate.getDay()
-            )
-          return returnDate
-        case 'Monthly':
-          returnDate.setDate(eventDate.getDate())
-          return returnDate
-        case 'Annually':
-          returnDate.setMonth(eventDate.getMonth())
-          returnDate.setDate(eventDate.getDate())
-          return returnDate
-        case 'No Repeat':
-          return eventDate
-      }
     },
     showEventDetail() {
       this.$router.push({ path: `eventDetail/${this.event.id}` })

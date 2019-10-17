@@ -1,16 +1,22 @@
 <template>
   <div class="incomingEventContainer">
     <div class="label">Incoming Events:</div>
+    <b-field label="Show Events till">
+      <b-select v-model="showEventRange">
+        <option v-for="option in showEventRangeOptions" :value="option" :key="option">{{ option }}</option>
+      </b-select>
+    </b-field>
     <div v-if="futureEvents.length > 0" class="eventsContainer">
       <FutureEventCard v-for="event in futureEvents" :key="event.id" :event="event"></FutureEventCard>
     </div>
-    <p v-else>You have no Event yet, create one here</p>
+    <p v-else>You have no event in this range yet</p>
   </div>
 </template>
 
 <script>
 /* eslint-disable */
 import FutureEventCard from '../../../cards/FutureEventCard'
+import { mapState } from 'vuex'
 
 export default {
   name: 'IncomingEventList',
@@ -21,7 +27,7 @@ export default {
     return {
       today: new Date(),
       futureEvents: '',
-      showEventRange: 'Next Week',
+      showEventRange: 'This Week',
       showEventRangeOptions: [
         'This Week',
         'Next Week',
@@ -32,7 +38,7 @@ export default {
   },
   methods: {
     setFutureEvents(dateRange) {
-      this.futureEvents = this.$store.state.events.events.filter(event => {
+      this.futureEvents = this.events.filter(event => {
         return this.isInShowRange(event)
       })
     },
@@ -116,8 +122,21 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapState({
+      events: state => state.events.events
+    })
+  },
   created() {
     this.setFutureEvents()
+  },
+  watch: {
+    showEventRange() {
+      this.setFutureEvents()
+    },
+    events() {
+      this.setFutureEvents()
+    }
   }
 }
 </script>

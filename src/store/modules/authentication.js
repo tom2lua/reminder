@@ -2,6 +2,11 @@ import axios from 'axios'
 import router from '../../router/index'
 const baseUrl = 'http://localhost:3003/api'
 
+const getBearerConfig = context => {
+  let token = `bearer ${context.rootState.authentication.token}`
+  return { headers: { Authorization: token } }
+}
+
 export default {
   state: {
     authenticated: false,
@@ -18,6 +23,9 @@ export default {
       state.authenticated = false
       state.user = ''
       state.token = ''
+    },
+    updateUser(state, payload) {
+      state.user = payload
     }
   },
   actions: {
@@ -40,6 +48,25 @@ export default {
         router.push({ name: 'calendar' })
       } catch (error) {
         console.log(error.response)
+      }
+    },
+    async UPDATE_PROFILE(context, payload) {
+      const config = getBearerConfig(context)
+      try {
+        const response = await axios.put(
+          `${baseUrl}/users`,
+          { ...payload },
+          config
+        )
+        const userObject = {
+          user: response.data,
+          token: context.rootState.authentication.token
+        }
+        localStorage.setItem('loggedInUser', JSON.stringify(userObject))
+        router.go(-1)
+        context.commit('updateUser', response.data)
+      } catch (error) {
+        console.log(error)
       }
     }
   }

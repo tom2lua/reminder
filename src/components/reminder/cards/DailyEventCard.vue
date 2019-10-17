@@ -92,6 +92,13 @@ export default {
         this.monthNames[date.getMonth()]
       }, ${date.getFullYear()}`
     },
+    getOrdinalNumber(number) {
+      if (number <= 0) return null
+      if (number >= 10 && number <= 20) return 'th'
+      if (number % 10 === 1) return 'st'
+      else if (number % 10 === 2) return 'nd'
+      else return 'th'
+    },
     getTimeString(inputTime) {
       const time = new Date(inputTime)
       return time.toLocaleString('en-US', {
@@ -99,13 +106,6 @@ export default {
         minute: 'numeric',
         hour12: true
       })
-    },
-    getOrdinalNumber(number) {
-      if (number <= 0) return null
-      if (number >= 10 || number <= 20) return 'th'
-      if (number % 10 === 1) return 'st'
-      else if (number % 10 === 2) return 'nd'
-      else return 'th'
     }
   }
 }

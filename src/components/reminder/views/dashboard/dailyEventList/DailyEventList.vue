@@ -4,17 +4,17 @@
     <div v-if="dailyEvents.length > 0" class="eventsContainer">
       <DailyEventCard v-for="(event) in dailyEvents" :key="event.id" :event="event"></DailyEventCard>
     </div>
-    <p v-else>You have no Event daily event yet, create one here</p>
+    <p v-else>You have no Daily Event yet</p>
   </div>
 </template>
 
 <script>
-// import EventCard from '../../calendar/dayDetails/eventCard/EventCard'
 import DailyEventCard from '../../../cards/DailyEventCard'
+import { mapState } from 'vuex'
+
 export default {
   name: 'DailyEventList',
   components: {
-    // EventCard,
     DailyEventCard
   },
   data() {
@@ -31,6 +31,16 @@ export default {
   },
   created() {
     this.initData()
+  },
+  computed: {
+    ...mapState({
+      events: state => state.events.events
+    })
+  },
+  watch: {
+    events() {
+      this.initData()
+    }
   }
 }
 </script>
