@@ -39,6 +39,7 @@ export default {
     async initStores() {
       await this.$store.dispatch('FETCH_EVENTS')
       await this.$store.dispatch('FETCH_EVENT_TYPES')
+      await this.$store.dispatch('FETCH_USER_SETTINGS')
       this.loading = false
     }
   }

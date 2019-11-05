@@ -15,13 +15,13 @@
         </div>
       </div>
     </div>
+    <div class="eventsLabel">Events for this day:</div>
     <div v-if="selectDay.events.length > 0">
-      <div class="eventsLabel">Events:</div>
       <div class="eventsContainer">
         <EventCard v-for="(event, index) in selectDayNoDailyEvents" :key="index" :event="event"></EventCard>
       </div>
     </div>
-    <div v-else>You have no events for this day yet, want to create one ?</div>
+    <div v-else class="noEventText">You have no events for this day yet</div>
   </div>
 </template>
 
@@ -107,6 +107,9 @@ export default {
 }
 .returnText:hover {
   cursor: pointer;
+}
+.noEventText {
+  margin-left: 2vh;
 }
 .eventsLabel {
   font-size: 1.5vw;

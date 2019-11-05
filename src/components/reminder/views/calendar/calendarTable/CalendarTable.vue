@@ -78,7 +78,6 @@ export default {
         }
         return false
       })
-      console.log(events)
       return events
     },
     checkRepeatOption(date, eventDate, repeatOption) {

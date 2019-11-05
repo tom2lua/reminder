@@ -2,7 +2,7 @@
   <div class="column is-6 profileContainer">
     <p class="formTitle">Your profile</p>
     <table>
-      <tr class="userInfo">
+      <tr>
         <td>
           <b class="infoLabel">First Name</b>
         </td>
@@ -10,7 +10,7 @@
           <p>{{firstName ? firstName : 'N/A'}}</p>
         </td>
       </tr>
-      <tr class="userInfo">
+      <tr>
         <td>
           <b class="infoLabel">Last Name</b>
         </td>
@@ -18,7 +18,7 @@
           <p>{{lastName ? lastName : 'N/A'}}</p>
         </td>
       </tr>
-      <tr class="userInfo">
+      <tr>
         <td>
           <b class="infoLabel">Birthday</b>
         </td>
@@ -26,7 +26,7 @@
           <p>{{birthday ? getDateString(birthday) : 'N/A'}}</p>
         </td>
       </tr>
-      <tr class="userInfo">
+      <tr>
         <td>
           <b class="infoLabel">Email</b>
         </td>
@@ -122,12 +122,16 @@ export default {
 .changeText {
   font-size: 1.2rem;
 }
+table {
+  margin-bottom: 1.5vh;
+}
+tr {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
 td,
 th {
   text-align: left;
   padding: 8px 8px 8px 1.5vh;
-}
-table {
-  margin-bottom: 1.5vh;
 }
 </style>

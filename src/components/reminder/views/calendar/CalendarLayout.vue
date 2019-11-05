@@ -58,11 +58,9 @@ export default {
     },
     inputEventTypes(eventTypes) {
       this.selectedEventTypes = eventTypes
-      console.log(this.selectedEventTypes)
     },
     inputRepeatOption(repeatOptions) {
       this.selectedRepeatOptions = repeatOptions
-      console.log(this.selectedRepeatOptions)
     }
   },
   created() {

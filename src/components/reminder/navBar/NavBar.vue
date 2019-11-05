@@ -8,11 +8,11 @@
 
     <template slot="end">
       <nav class="level">
-        <div class="level-item has-text-centered">
+        <!-- <div class="level-item has-text-centered">
           <div>
             <router-link :to="{name: 'userInfo'}" class="navBarMenu">{{firstName}}</router-link>
           </div>
-        </div>
+        </div>-->
         <div class="level-item has-text-centered">
           <div>
             <div v-on:click="logout" class="navBarMenu">Logout</div>

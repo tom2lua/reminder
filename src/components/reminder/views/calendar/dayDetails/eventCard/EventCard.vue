@@ -3,13 +3,15 @@
     <div class="card-content">
       <div class="content">
         <div>
-          <b-icon
-            v-bind:style="{ color: event.eventType.representColor }"
-            class="eventTypeIcon"
-            pack="fas"
-            icon="square"
-            size="is-small"
-          ></b-icon>
+          <b-tooltip :label="event.eventType.name" type="is-light" position="is-top">
+            <b-icon
+              v-bind:style="{ color: event.eventType.representColor }"
+              class="eventTypeIcon"
+              pack="fas"
+              icon="square"
+              size="is-small"
+            ></b-icon>
+          </b-tooltip>
           <span class="eventName detailText">{{event.name}}</span>
         </div>
 
@@ -53,6 +55,9 @@
             </div>
           </div>
         </b-tooltip>
+        <div class="eventDetailText" v-on:click="showEventDetail">
+          <a>See Details</a>
+        </div>
       </div>
     </div>
   </div>
@@ -106,6 +111,9 @@ export default {
       if (number % 10 === 1) return 'st'
       else if (number % 10 === 2) return 'nd'
       else return 'th'
+    },
+    showEventDetail() {
+      this.$router.push({ path: `eventDetail/${this.event.id}` })
     }
   }
 }
@@ -129,5 +137,8 @@ export default {
 }
 .eventTypeIcon {
   font-size: 1.2rem;
+}
+.eventDetailText {
+  margin-top: 10px;
 }
 </style>

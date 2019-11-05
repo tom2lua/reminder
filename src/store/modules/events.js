@@ -73,10 +73,12 @@ export default {
       }
     },
     async UPDATE_EVENT(context, payload) {
+      const config = getBearerConfig(context)
       try {
         const updatedEvent = await axios.put(
           `${baseUrl}/events/${payload.id}`,
-          payload
+          payload,
+          config
         )
         console.log('Updated Event:', updatedEvent.data)
         context.commit('updateEvent', updatedEvent.data)

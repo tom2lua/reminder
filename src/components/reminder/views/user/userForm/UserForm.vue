@@ -24,7 +24,7 @@
       </b-field>
       <BInputWithValidation rules="required|email" type="text" label="Email" v-model="email" />
       <div class="buttons">
-        <b-button class="button" type="is-primary" v-on:click="passes(editUserProfile)">Confirm</b-button>
+        <b-button type="is-primary" v-on:click="passes(editUserProfile)">Confirm</b-button>
         <b-button type="is-secondary" v-on:click="cancelEdit">Cancel</b-button>
       </div>
     </ValidationObserver>
