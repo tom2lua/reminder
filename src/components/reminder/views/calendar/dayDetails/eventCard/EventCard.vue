@@ -94,23 +94,18 @@ export default {
   methods: {
     getDateString() {
       const date = new Date(this.event.date)
-      return `${date.getDate()}${this.getOrdinalNumber(date.getDate())} ${
-        this.monthNames[date.getMonth()]
-      }, ${date.getFullYear()}`
+      return date.toLocaleDateString(
+        'en-EN',
+        this.$store.state.settings.localeDateStringOptions
+      )
     },
     getTimeString(inputTime) {
       const time = new Date(inputTime)
-      return time.toLocaleString('en-US', {
+      return time.toLocaleString('en-EN', {
         hour: 'numeric',
         minute: 'numeric',
-        hour12: true
+        hour12: this.$store.state.settings.settings.is12HourFormat
       })
-    },
-    getOrdinalNumber(number) {
-      if (number <= 0) return null
-      if (number % 10 === 1) return 'st'
-      else if (number % 10 === 2) return 'nd'
-      else return 'th'
     },
     showEventDetail() {
       this.$router.push({ path: `eventDetail/${this.event.id}` })

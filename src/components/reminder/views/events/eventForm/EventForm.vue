@@ -18,14 +18,19 @@
         <div class="columns">
           <div class="column is-6">
             <b-field label="Start Time" custom-class="has-text-primary">
-              <b-timepicker size="is-small" hour-format="12" v-model="startTime" inline></b-timepicker>
+              <b-timepicker
+                size="is-small"
+                :hour-format="getTimePickerFormat()"
+                v-model="startTime"
+                inline
+              ></b-timepicker>
             </b-field>
           </div>
           <div class="column is-6">
             <b-field label="End Time" custom-class="has-text-primary">
               <b-timepicker
                 size="is-small"
-                hour-format="12"
+                :hour-format="getTimePickerFormat()"
                 v-model="endTime"
                 :min-time="startTime"
                 inline
@@ -178,6 +183,9 @@ export default {
     },
     cancelEventModify() {
       this.$router.go(-1)
+    },
+    getTimePickerFormat() {
+      return this.$store.state.settings.settings.is12HourFormat ? '12' : '24'
     }
   },
   created() {

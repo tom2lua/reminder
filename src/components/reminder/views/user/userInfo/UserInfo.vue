@@ -1,41 +1,43 @@
 <template>
-  <div class="column is-6 profileContainer">
-    <p class="formTitle">Your profile</p>
-    <table>
-      <tr>
-        <td>
-          <b class="infoLabel">First Name</b>
-        </td>
-        <td>
-          <p>{{firstName ? firstName : 'N/A'}}</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <b class="infoLabel">Last Name</b>
-        </td>
-        <td>
-          <p>{{lastName ? lastName : 'N/A'}}</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <b class="infoLabel">Birthday</b>
-        </td>
-        <td>
-          <p>{{birthday ? getDateString(birthday) : 'N/A'}}</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <b class="infoLabel">Email</b>
-        </td>
-        <td>
-          <p>{{email ? email : 'N/A'}}</p>
-        </td>
-      </tr>
-    </table>
-    <router-link class="changeText" :to="{name: 'editProfile'}">Change your profile</router-link>
+  <div class="columns">
+    <div class="column is-6 profileContainer">
+      <p class="formTitle">Your profile</p>
+      <table>
+        <tr>
+          <td>
+            <b class="infoLabel">First Name</b>
+          </td>
+          <td>
+            <p>{{firstName ? firstName : 'N/A'}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b class="infoLabel">Last Name</b>
+          </td>
+          <td>
+            <p>{{lastName ? lastName : 'N/A'}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b class="infoLabel">Birthday</b>
+          </td>
+          <td>
+            <p>{{birthday ? getDateString(birthday) : 'N/A'}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b class="infoLabel">Email</b>
+          </td>
+          <td>
+            <p>{{email ? email : 'N/A'}}</p>
+          </td>
+        </tr>
+      </table>
+      <router-link class="changeText" :to="{name: 'editProfile'}">Change your profile</router-link>
+    </div>
   </div>
 </template>
 
@@ -75,16 +77,10 @@ export default {
     },
     getDateString(inputDate) {
       const date = new Date(inputDate)
-      return `${date.getDate()}${this.getOrdinalNumber(date.getDate())} ${
-        this.monthNames[date.getMonth()]
-      }, ${date.getFullYear()}`
-    },
-    getOrdinalNumber(number) {
-      if (number <= 0) return null
-      if (number >= 10 && number < 20) return 'th'
-      if (number % 10 === 1) return 'st'
-      else if (number % 10 === 2) return 'nd'
-      else return 'th'
+      return date.toLocaleDateString(
+        'en-EN',
+        this.$store.state.settings.localeDateStringOptions
+      )
     }
   },
   created() {

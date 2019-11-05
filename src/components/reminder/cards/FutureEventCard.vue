@@ -113,11 +113,10 @@ export default {
       const ealiestEventDate = this.getEaliestEventDate(this.event)
       return this.getDayString(ealiestEventDate)
         ? this.getDayString(ealiestEventDate)
-        : `${ealiestEventDate.getDate()}${this.getOrdinalNumber(
-            ealiestEventDate.getDate()
-          )} ${
-            this.monthNames[ealiestEventDate.getMonth()]
-          }, ${ealiestEventDate.getFullYear()}`
+        : date.toLocaleDateString(
+            'en-EN',
+            this.$store.state.settings.localeDateStringOptions
+          )
     },
     getDayString(eventDate) {
       const oneDayInMiliseconds = 86400000
@@ -160,18 +159,11 @@ export default {
     },
     getTimeString(inputTime) {
       const time = new Date(inputTime)
-      return time.toLocaleString('en-US', {
+      return time.toLocaleString('en-EN', {
         hour: 'numeric',
         minute: 'numeric',
-        hour12: true
+        hour12: this.$store.state.settings.settings.is12HourFormat
       })
-    },
-    getOrdinalNumber(number) {
-      if (number <= 0) return null
-      if (number >= 10 && number <= 20) return 'th'
-      if (number % 10 === 1) return 'st'
-      else if (number % 10 === 2) return 'nd'
-      else return 'th'
     },
     getEaliestEventDate(event) {
       const eventDate = new Date(event.date)

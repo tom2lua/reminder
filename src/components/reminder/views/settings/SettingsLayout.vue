@@ -1,23 +1,30 @@
 <template>
   <div>
-    <UserInfoView></UserInfoView>
+    <UserInfo></UserInfo>
+    <div class="divider"></div>
     <SettingsForm></SettingsForm>
   </div>
 </template>
 
 <script>
-import UserInfoView from '../user/userInfoView/UserInfoView'
-// import SettingsInfo from './settingsInfo/SettingsInfo'
+import UserInfo from '../user/userInfo/UserInfo'
 import SettingsForm from './settingsForm/SettingsForm'
 
 export default {
   name: 'SettingsLayout',
   components: {
-    UserInfoView,
-    // SettingsInfo,
+    UserInfo,
     SettingsForm
   }
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+.divider {
+  height: 2px;
+  width: 95%;
+  background-color: #c6b2fb;
+  margin-left: 2.5%;
+  margin-top: 3vh;
+}
+</style>

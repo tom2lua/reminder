@@ -31,7 +31,7 @@ export default {
   },
   data() {
     return {
-      dayNames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      dayNames: [],
       days: []
     }
   },
@@ -39,9 +39,15 @@ export default {
     setDays() {
       const firstDayOfMonth = new Date(this.year, this.month).getDay()
       const daysInMonth = new Date(this.year, this.month + 1, 0).getDate()
-      const daySlots = 42
+      let daySlots = 42
+      let startIndex = 1
+      if (this.$store.state.settings.settings.firstDayOfWeek == 'Monday') {
+        daySlots++
+        startIndex++
+      }
+
       this.days = []
-      for (let i = 1; i <= daySlots; i++) {
+      for (let i = startIndex; i <= daySlots; i++) {
         const date = new Date(this.year, this.month, i - firstDayOfMonth)
         const events = this.findEvents(date)
 
@@ -97,10 +103,18 @@ export default {
     },
     selectDay(day) {
       this.$emit('select-day', day)
+    },
+    setDayNames() {
+      if (this.$store.state.settings.settings.firstDayOfWeek == 'Sunday') {
+        this.dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+      } else {
+        this.dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      }
     }
   },
   created() {
     this.setDays()
+    this.setDayNames()
   },
   watch: {
     month(newValue, oldValue) {

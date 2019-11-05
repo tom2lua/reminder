@@ -8,7 +8,8 @@ const getBearerConfig = context => {
 
 export default {
   state: {
-    settings: {}
+    settings: {},
+    localeDateStringOptions: { month: 'long', day: 'numeric', year: 'numeric' }
   },
   mutations: {
     setSettings(state, payload) {
