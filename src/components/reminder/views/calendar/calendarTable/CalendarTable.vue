@@ -25,7 +25,9 @@ export default {
     month: {
       type: Number,
       required: true
-    }
+    },
+    selectedEventTypes: Array,
+    selectedRepeatOptions: Array
   },
   data() {
     return {
@@ -55,6 +57,12 @@ export default {
     },
     findEvents(date) {
       const events = this.$store.state.events.events.filter(event => {
+        //Filter repeatOptions and eventTypes:
+        if (!this.selectedRepeatOptions.includes(event.repeatOption))
+          return false
+        if (!this.selectedEventTypes.includes(event.eventType.name))
+          return false
+
         //Exclude Daily Events:
         if (event.repeatOption != 'Daily') {
           const eventDate = new Date(event.date)
@@ -70,6 +78,7 @@ export default {
         }
         return false
       })
+      console.log(events)
       return events
     },
     checkRepeatOption(date, eventDate, repeatOption) {
@@ -97,6 +106,12 @@ export default {
   watch: {
     month(newValue, oldValue) {
       if (newValue !== oldValue) this.setDays()
+    },
+    selectedRepeatOptions() {
+      this.setDays()
+    },
+    selectedEventTypes() {
+      this.setDays()
     }
   }
 }

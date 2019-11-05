@@ -1,14 +1,25 @@
 <template>
   <div>
     <div v-if="showCalendar">
+      <CalendarFilter
+        v-on:input-event-types="inputEventTypes"
+        v-on:input-repeat-option="inputRepeatOption"
+      ></CalendarFilter>
       <MonthPicker :month="month" :year="year" v-on:change-month-and-year="setMonthAndYear"></MonthPicker>
-      <CalendarTable :month="month" :year="year" v-on:select-day="setSelectDay"></CalendarTable>
+      <CalendarTable
+        :month="month"
+        :year="year"
+        v-on:select-day="setSelectDay"
+        :selectedEventTypes="selectedEventTypes"
+        :selectedRepeatOptions="selectedRepeatOptions"
+      ></CalendarTable>
     </div>
     <DayDetail v-else :selectDay="selectDay" v-on:show-calendar="showCalendar = !showCalendar"></DayDetail>
   </div>
 </template>
 
 <script>
+import CalendarFilter from './calendarFilter/CalendarFilter'
 import MonthPicker from './monthPicker/MonthPicker'
 import CalendarTable from './calendarTable/CalendarTable'
 import DayDetail from './dayDetails/DayDetails'
@@ -18,14 +29,17 @@ export default {
   components: {
     MonthPicker,
     CalendarTable,
-    DayDetail
+    DayDetail,
+    CalendarFilter
   },
   data() {
     return {
       year: '',
       month: '',
       selectDay: null,
-      showCalendar: true
+      showCalendar: true,
+      selectedEventTypes: [],
+      selectedRepeatOptions: []
     }
   },
   methods: {
@@ -41,6 +55,14 @@ export default {
     setSelectDay(day) {
       this.selectDay = day
       this.showCalendar = false
+    },
+    inputEventTypes(eventTypes) {
+      this.selectedEventTypes = eventTypes
+      console.log(this.selectedEventTypes)
+    },
+    inputRepeatOption(repeatOptions) {
+      this.selectedRepeatOptions = repeatOptions
+      console.log(this.selectedRepeatOptions)
     }
   },
   created() {
@@ -49,5 +71,5 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 </style>

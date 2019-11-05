@@ -68,7 +68,7 @@ export default {
 <style lang="scss" scoped>
 .monthLabel {
   font-size: 2.5vw;
-  margin: 2.5vh 0;
+  margin: 0 0 1vh 0;
   text-align: center;
   color: $primary-color;
 }
@@ -77,5 +77,11 @@ export default {
 }
 .arrowIcon {
   transform: scale(0.7, 0.7);
+}
+.arrowIcon:first-child {
+  padding-left: 50px;
+}
+.arrowIcon:last-child {
+  padding-right: 50px;
 }
 </style>
