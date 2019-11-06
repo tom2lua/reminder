@@ -37,17 +37,17 @@ export default {
   },
   methods: {
     setDays() {
-      const firstDayOfMonth = new Date(this.year, this.month).getDay()
+      let firstDayOfMonth = new Date(this.year, this.month).getDay()
+      if (this.$store.state.settings.settings.firstDayOfWeek == 'Monday') {
+        if (firstDayOfMonth == 0) {
+          firstDayOfMonth = 6
+        } else firstDayOfMonth--
+      }
       const daysInMonth = new Date(this.year, this.month + 1, 0).getDate()
       let daySlots = 42
-      let startIndex = 1
-      if (this.$store.state.settings.settings.firstDayOfWeek == 'Monday') {
-        daySlots++
-        startIndex++
-      }
-
       this.days = []
-      for (let i = startIndex; i <= daySlots; i++) {
+
+      for (let i = 1; i <= daySlots; i++) {
         const date = new Date(this.year, this.month, i - firstDayOfMonth)
         const events = this.findEvents(date)
 

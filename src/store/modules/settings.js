@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'http://localhost:3003/api'
+const baseUrl = 'https://backend-tom2lua.herokuapp.com/api'
 
 const getBearerConfig = context => {
   let token = `bearer ${context.rootState.authentication.token}`
