@@ -41,11 +41,11 @@ export default {
         console.error(error)
       }
     },
-    async SIGN_UP({ commit }, payload) {
+    async SIGN_UP({ commit, dispatch }, payload) {
       try {
         const response = await axios.post(`${baseUrl}/users`, { ...payload })
         commit('setUser', response.data)
-        router.push({ name: 'calendar' })
+        dispatch('CREATE_USER_SETTINGS')
       } catch (error) {
         console.log(error.response)
       }

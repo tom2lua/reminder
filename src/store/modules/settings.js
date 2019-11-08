@@ -1,4 +1,5 @@
 import axios from 'axios'
+import router from '../../router/index'
 const baseUrl = 'https://backend-tom2lua.herokuapp.com/api'
 
 const getBearerConfig = context => {
@@ -27,6 +28,26 @@ export default {
       try {
         const settings = await axios.get(`${baseUrl}/settings`, config)
         context.commit('setSettings', settings.data)
+      } catch (error) {
+        console.error(error.response.data.error)
+      }
+    },
+    async CREATE_USER_SETTINGS(context) {
+      const config = getBearerConfig(context)
+      const settingsObject = {
+        darkMode: false,
+        firstDayOfWeek: 'Monday',
+        is12HourFormat: true,
+        isNotiEnabled: false
+      }
+      try {
+        const settings = await axios.post(
+          `${baseUrl}/settings`,
+          settingsObject,
+          config
+        )
+        context.commit('setSettings', settings.data)
+        router.push({ name: 'dashboard' })
       } catch (error) {
         console.error(error.response.data.error)
       }
