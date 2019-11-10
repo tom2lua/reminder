@@ -9,7 +9,8 @@ const getBearerConfig = context => {
 export default {
   state: {
     events: [],
-    eventTypes: []
+    eventTypes: [],
+    eventsFormNotificationMessage: {}
   },
   mutations: {
     setEvents(state, payload) {
@@ -21,16 +22,23 @@ export default {
       state.events.push(payload)
     },
     updateEvent(state, payload) {
+      console.log('Updated Event:', payload)
       state.events = state.events.map(event => {
         return event.id === payload.id ? payload : event
       })
     },
     deleteEvent(state, payload) {
+      console.log('Event deleted')
       state.events = state.events.filter(event => event.id !== payload)
     },
     setEventTypes(state, payload) {
       console.log('Event Types:', payload)
       state.eventTypes = payload
+    },
+    setEventFormNotification(state, payload) {
+      console.log('mutation')
+      console.log(payload)
+      state.eventsFormNotificationMessage = payload
     }
   },
   actions: {
@@ -67,6 +75,10 @@ export default {
           ...createdEvent.data,
           eventType: payload.eventType
         })
+        context.commit('setEventFormNotification', {
+          message: `Event ${payload.name} created!`,
+          type: 'is-primary'
+        })
       } catch (error) {
         console.error(error.response)
       }
@@ -79,8 +91,11 @@ export default {
           payload,
           config
         )
-        console.log('Updated Event:', updatedEvent.data)
         context.commit('updateEvent', updatedEvent.data)
+        context.commit('setEventFormNotification', {
+          message: `Event ${payload.name} updated!`,
+          type: 'is-primary'
+        })
       } catch (error) {
         console.error(error)
       }
@@ -89,9 +104,17 @@ export default {
       const config = getBearerConfig(context)
       try {
         await axios.delete(`${baseUrl}/events/${payload.id}`, config)
-        console.log('Event deleted')
 
         context.commit('deleteEvent', payload.id)
+        // context.commit('setEventFormNotification', {
+        //   message: 'Event deleted!',
+        //   type: 'is-danger'
+        // })
+        console.log('action')
+        context.commit('setEventFormNotification', {
+          message: 'Event deleted!',
+          type: 'is-primary'
+        })
       } catch (error) {
         console.error(error)
       }

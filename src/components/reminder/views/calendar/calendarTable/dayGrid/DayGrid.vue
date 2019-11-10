@@ -96,8 +96,8 @@ export default {
   color: rgb(88, 88, 88);
 }
 .todayGrid {
-  background-color: $primary-color !important;
-  color: white !important;
+  font-weight: bold !important;
+  border: 3px solid $primary-color;
 }
 .haveEvent {
   background-color: #f1e0d6;

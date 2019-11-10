@@ -6,13 +6,15 @@
         <b-button type="is-primary" icon-left="plus" size="is-medium">New Event</b-button>
       </router-link>
       <div class="eventContainer">
-        <EventCard v-for="(event, index) in events" :key="index" :event="event"></EventCard>
+        <EventCard v-for="(event, index) in eventList" :key="index" :event="event"></EventCard>
+        <p>You have {{eventList.length}} event(s)</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import EventCard from '../../../cards/EventCard'
 
 export default {
@@ -22,12 +24,22 @@ export default {
   },
   data() {
     return {
-      events: []
+      eventList: []
     }
+  },
+  computed: {
+    ...mapState({
+      events: state => state.events.events
+    })
   },
   methods: {
     initData() {
-      this.events = this.$store.state.events.events
+      this.eventList = this.$store.state.events.events
+    }
+  },
+  watch: {
+    events(newValue) {
+      this.eventList = newValue
     }
   },
   created() {

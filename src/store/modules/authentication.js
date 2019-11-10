@@ -44,6 +44,7 @@ export default {
     async SIGN_UP({ commit, dispatch }, payload) {
       try {
         const response = await axios.post(`${baseUrl}/users`, { ...payload })
+        localStorage.setItem('loggedInUser', JSON.stringify(response.data))
         commit('setUser', response.data)
         dispatch('CREATE_USER_SETTINGS')
       } catch (error) {

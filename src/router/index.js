@@ -82,25 +82,6 @@ const router = new Router({
             'reminder/views/settings/settingsForm/SettingsForm'
           )
         }
-        // {
-        //   name: 'user',
-        //   path: 'user',
-        //   component: lazyLoading('reminder/views/user/UserView'),
-        //   children: [
-        //     {
-        //       name: 'editProfile',
-        //       path: 'editProfile',
-        //       component: lazyLoading('reminder/views/user/userForm/UserForm')
-        //     },
-        //     {
-        //       name: 'userInfo',
-        //       path: 'userInfo',
-        //       component: lazyLoading(
-        //         'reminder/views/user/userInfoView/UserInfoView'
-        //       )
-        //     }
-        //   ]
-        // }
       ]
     }
   ]

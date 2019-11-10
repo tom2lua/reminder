@@ -75,17 +75,13 @@
         </div>
       </div>
     </div>
-    <b-notification
-      :type="notificationObject.type"
-      aria-close-label="Close notification"
-      :active.sync="notificationObject.active"
-    >{{notificationObject.content}}</b-notification>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'NewEventForm',
+  name: 'EventForm',
   data() {
     return {
       name: '',
@@ -99,9 +95,14 @@ export default {
       eventType: '',
       eventTypes: [],
       eventNameMessObject: {},
-      notificationObject: { active: false },
       editMode: false
     }
+  },
+  computed: {
+    ...mapState({
+      eventsFormNotificationMessage: state =>
+        state.events.eventsFormNotificationMessage
+    })
   },
   methods: {
     createEvent() {
@@ -122,11 +123,6 @@ export default {
           eventType: this.eventType
         }
         this.$store.dispatch('CREATE_EVENT', eventObject)
-        this.notificationObject = {
-          active: true,
-          content: 'Event created',
-          type: 'is-success'
-        }
         this.eventNameMessObject = {}
       }
     },
@@ -219,6 +215,14 @@ export default {
           0
         )
       }
+    },
+    eventsFormNotificationMessage(newValue) {
+      console.log('watch')
+      this.$buefy.toast.open({
+        duration: 2500,
+        ...newValue,
+        queue: true
+      })
     }
   }
 }
@@ -229,7 +233,7 @@ export default {
   min-height: calc(85vh - 9.5vw);
 }
 .buttons {
-  margin-top: 40px;
+  margin-top: 3vh;
 }
 .button {
   margin-right: 10px;
@@ -239,5 +243,9 @@ export default {
   color: $primary-color;
   font-size: $header-font-size;
   text-align: center;
+}
+.notiContainer {
+  width: calc(100% - 10vh);
+  margin-left: 5vh;
 }
 </style>

@@ -114,7 +114,7 @@ export default {
     },
     deleteEvent() {
       this.$store.dispatch('DELETE_EVENT', { id: this.$route.params.id })
-      this.$router.replace({ name: 'dashboard' })
+      this.$router.replace({ name: 'events' })
     }
   },
   created() {
