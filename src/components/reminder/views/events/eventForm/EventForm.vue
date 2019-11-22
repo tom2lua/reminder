@@ -217,7 +217,6 @@ export default {
       }
     },
     eventsFormNotificationMessage(newValue) {
-      console.log('watch')
       this.$buefy.toast.open({
         duration: 2500,
         ...newValue,

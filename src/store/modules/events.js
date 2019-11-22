@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { ToastProgrammatic as Toast } from 'buefy'
 const baseUrl = 'https://backend-tom2lua.herokuapp.com/api'
 
 const getBearerConfig = context => {
@@ -9,8 +10,7 @@ const getBearerConfig = context => {
 export default {
   state: {
     events: [],
-    eventTypes: [],
-    eventsFormNotificationMessage: {}
+    eventTypes: []
   },
   mutations: {
     setEvents(state, payload) {
@@ -34,11 +34,6 @@ export default {
     setEventTypes(state, payload) {
       console.log('Event Types:', payload)
       state.eventTypes = payload
-    },
-    setEventFormNotification(state, payload) {
-      console.log('mutation')
-      console.log(payload)
-      state.eventsFormNotificationMessage = payload
     }
   },
   actions: {
@@ -75,12 +70,20 @@ export default {
           ...createdEvent.data,
           eventType: payload.eventType
         })
-        context.commit('setEventFormNotification', {
+        Toast.open({
+          duration: 2500,
           message: `Event ${payload.name} created!`,
-          type: 'is-primary'
+          type: 'is-primary',
+          queue: true
         })
       } catch (error) {
         console.error(error.response)
+        Toast.open({
+          duration: 2500,
+          message: 'Error occured. Please try again later !!!',
+          type: 'is-danger',
+          queue: true
+        })
       }
     },
     async UPDATE_EVENT(context, payload) {
@@ -92,12 +95,20 @@ export default {
           config
         )
         context.commit('updateEvent', updatedEvent.data)
-        context.commit('setEventFormNotification', {
-          message: `Event ${payload.name} updated!`,
-          type: 'is-primary'
+        Toast.open({
+          duration: 2500,
+          message: `Event ${updatedEvent.data.name} updated!`,
+          type: 'is-primary',
+          queue: true
         })
       } catch (error) {
         console.error(error)
+        Toast.open({
+          duration: 2500,
+          message: 'Error occured. Please try again later !!!',
+          type: 'is-danger',
+          queue: true
+        })
       }
     },
     async DELETE_EVENT(context, payload) {
@@ -106,17 +117,20 @@ export default {
         await axios.delete(`${baseUrl}/events/${payload.id}`, config)
 
         context.commit('deleteEvent', payload.id)
-        // context.commit('setEventFormNotification', {
-        //   message: 'Event deleted!',
-        //   type: 'is-danger'
-        // })
-        console.log('action')
-        context.commit('setEventFormNotification', {
-          message: 'Event deleted!',
-          type: 'is-primary'
+        Toast.open({
+          duration: 2500,
+          message: 'Event deleted',
+          type: 'is-danger',
+          queue: true
         })
       } catch (error) {
         console.error(error)
+        Toast.open({
+          duration: 2500,
+          message: 'Error occured. Please try again later !!!',
+          type: 'is-danger',
+          queue: true
+        })
       }
     },
     async FETCH_EVENT_TYPES({ commit }) {
