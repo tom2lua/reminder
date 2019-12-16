@@ -92,7 +92,7 @@ export default {
 .cardDay {
   font-size: 9vw;
   text-align: center;
-  color: $primary-color;
+  color: var(--text-color-primary);
   line-height: 90%;
 }
 .cardMonth {
@@ -102,7 +102,7 @@ export default {
 .returnText {
   font-size: 1.3vw;
   text-decoration: underline;
-  color: $primary-color;
+  color: var(--text-color-primary);
   margin-bottom: 3vh;
 }
 .returnText:hover {
@@ -114,7 +114,7 @@ export default {
 .eventsLabel {
   font-size: 1.5vw;
   margin: 2vh;
-  color: $primary-color;
+  color: var(--text-color-primary);
   font-weight: bold;
 }
 .eventsContainer {

@@ -18,7 +18,7 @@ export default {
 <style lang="scss" scoped>
 .authContainer {
   display: block;
-  background-color: $background-color;
+  background-color: var(--primary-color-lighter);
   height: 100vh;
   width: 100vw;
 }

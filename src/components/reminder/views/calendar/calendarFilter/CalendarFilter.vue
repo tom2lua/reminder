@@ -1,12 +1,6 @@
 <template>
   <b-collapse :open="false">
-    <b-icon
-      class="has-text-primary filterIcon"
-      slot="trigger"
-      size="is-medium"
-      pack="fa"
-      icon="bars"
-    ></b-icon>
+    <b-icon class="filterIcon" slot="trigger" pack="fa" icon="caret-down"></b-icon>
     <div class="filterContainer">
       <div class="columns">
         <div class="column is-5">
@@ -79,12 +73,17 @@ export default {
 <style lang="scss" scoped>
 .filterIcon {
   position: relative;
-  margin: 30px 0 0 30px;
+  margin: 20px 0 0 30px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: var(--text-color-primary);
+  color: white;
+  font-size: 20px;
 }
 .filterContainer {
   margin: 10px 30px 0px 30px;
   padding-bottom: 10px;
-  border-bottom: 1px solid $primary-color;
+  border-bottom: 1px solid var(--primary-color);
 }
 .filterTitle {
   font-weight: bold;

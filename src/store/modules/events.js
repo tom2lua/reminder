@@ -44,7 +44,7 @@ export default {
         const events = await axios.get(`${baseUrl}/events`, config)
         context.commit('setEvents', events.data)
       } catch (error) {
-        console.error(error.response.data.error)
+        console.error(error.response)
       }
     },
     async CREATE_EVENT(context, payload) {

@@ -1,7 +1,7 @@
 <template>
   <div class="incomingEventContainer">
     <div class="label">Incoming Events:</div>
-    <b-field label="Show Events till">
+    <b-field label="Show Events till" custom-class="secondaryTextColor">
       <b-select v-model="showEventRange">
         <option v-for="option in showEventRangeOptions" :value="option" :key="option">{{ option }}</option>
       </b-select>
@@ -9,7 +9,7 @@
     <div v-if="futureEvents.length > 0" class="eventsContainer">
       <FutureEventCard v-for="event in futureEvents" :key="event.id" :event="event"></FutureEventCard>
     </div>
-    <p v-else>You have no event in this range yet</p>
+    <p v-else class="secondaryTextColor">You have no event in this range yet</p>
   </div>
 </template>
 
@@ -145,7 +145,7 @@ export default {
 .label {
   text-align: left;
   font-size: 1.5rem;
-  color: $primary-color;
+  color: var(--text-color-primary);
 }
 .eventsContainer {
   display: grid;

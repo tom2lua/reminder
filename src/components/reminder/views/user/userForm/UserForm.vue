@@ -72,7 +72,7 @@ export default {
 <style lang="scss" scoped>
 .formTitle {
   font-size: 2rem;
-  color: $primary-color;
+  color: var(--text-color-primary);
   margin: 4vh 0 2vh 0;
 }
 .buttons {

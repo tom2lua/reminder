@@ -130,7 +130,7 @@ export default {
   right: 12px;
 }
 .editButton:hover {
-  background-color: $background-color;
+  background-color: var(--primary-color-lighter);
   border-radius: 100%;
 }
 </style>

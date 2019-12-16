@@ -29,7 +29,7 @@ export default {
         const settings = await axios.get(`${baseUrl}/settings`, config)
         context.commit('setSettings', settings.data)
       } catch (error) {
-        console.error(error.response.data.error)
+        console.error(error.response)
       }
     },
     async CREATE_USER_SETTINGS(context) {
@@ -49,7 +49,7 @@ export default {
         context.commit('setSettings', settings.data)
         router.push({ name: 'dashboard' })
       } catch (error) {
-        console.error(error.response.data.error)
+        console.error(error.response)
       }
     },
     async UPDATE_USER_SETTINGS(context, payload) {
@@ -62,7 +62,7 @@ export default {
         )
         context.commit('updateSettings', updatedSettings.data)
       } catch (error) {
-        console.error(error.response.data.error)
+        console.error(error.response)
       }
     }
   }

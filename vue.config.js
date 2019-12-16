@@ -1,12 +1,12 @@
 module.exports = {
-	css: {
-		loaderOptions: {
-			scss: {
-				data: '@import "~@/sass/abstracts/_variables.scss";'
-			}
-		}
-	},
-	devServer: {
-		host: 'localhost'
-	}
+  // css: {
+  //   loaderOptions: {
+  //     scss: {
+  //       data: '@import "~bulma/sass/utilities/initial-variables";'
+  //     }
+  //   }
+  // },
+  devServer: {
+    host: 'localhost'
+  }
 }

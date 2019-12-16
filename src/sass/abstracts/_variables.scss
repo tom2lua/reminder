@@ -1,6 +1,84 @@
-$primary-color: #7957d5;
-$secondary-color: #927bcf;
-$background-color: #9f8fcc;
+// $primary-color: red;
+// $secondary-color: red;
+// $background-color: red;
 
 $header-font-size: 2.5vw;
 $normal-font-size: 1.2vw;
+
+$default: (
+    primary-color: (
+        base: #7957d5, 
+        light: #927bcf,
+        lighter: #9f8fcc
+    ),
+    secondary-color: white,
+    logo-color: #7957d5,
+    text-color : (
+        primary: #7957d5,
+        secondary: #0e0d0d,
+    ),
+    calendar-grid-color: (
+        thisMonth: white, 
+        notThisMonth: #9f8fcc
+    )                          
+);
+$theme-map: (
+    default: (
+        background-primary: (
+            background-color: #7957d5
+        ),
+        background-primary-light: (
+            background-color: #7957d5
+        ),
+        background-primary-lighter: (
+            background-color: #9f8fcc
+        ),
+    ), 
+    classicRetro: (
+        background-primary: (
+            background-color: black
+        ),
+        background-primary-light: (
+            background-color: grey
+        ),
+        background-primary-lighter: (
+            background-color: rgb(161, 161, 161)
+        ),
+    ),
+);
+
+
+@mixin themable($theme-name, $theme-map) {
+    .#{$theme-name} {
+        .background-primary {
+            display: true
+        }
+    }
+};
+
+@each $section, $map in $theme-map {
+    .background-primary {
+        display: true;
+    }
+};
+
+@function color($color,$tone){
+
+    @warn map-get($colorPalette,$color);
+
+    @if map-has-key($colorPalette,$color){
+        $color: map-get($colorPalette,$color);
+
+            @if map-has-key($color,$tone){
+                $tone: map-get($color,$tone);
+                @return $tone;
+            }
+
+            @warn "unknown tone `#{$tone}` in color";
+            @return null;        
+    }
+
+    @warn "unknown color `#{$color}` in palette";
+    @return null;
+   
+}

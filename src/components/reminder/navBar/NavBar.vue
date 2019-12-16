@@ -48,18 +48,18 @@ export default {
 <style lang="scss">
 .navBarContainer {
   height: 8vw;
-  border-bottom: 2px solid $secondary-color;
+  border-bottom: 2px solid var(--primary-color-light);
   width: 100%;
 }
 .logo {
   font-size: 3vw;
   margin-left: 3.5vw;
-  color: $primary-color;
+  color: var(--text-color-primary);
 }
 .navBarMenu {
   font-size: 1.5vw;
   width: 10vw;
-  color: $primary-color;
+  color: var(--text-color-primary);
 
   &:hover {
     cursor: pointer;

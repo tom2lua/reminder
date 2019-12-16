@@ -82,13 +82,13 @@ export default {
   height: 3.7vw;
   position: relative;
   font-size: 1.5vw;
-  color: $primary-color;
-  border: 1px solid $primary-color;
+  color: var(--text-color-primary);
+  border: 1px solid var(--primary-color);
   border-collapse: collapse;
   &:hover {
     cursor: pointer;
     color: white;
-    background-color: $background-color;
+    background-color: var(--primary-color-lighter);
   }
 }
 .otherMonthGrid {
@@ -97,11 +97,10 @@ export default {
 }
 .todayGrid {
   font-weight: bold !important;
-  border: 3px solid $primary-color;
+  border: 3px solid var(--primary-color);
 }
 .haveEvent {
-  background-color: #f1e0d6;
-  color: $primary-color;
+  color: var(--text-color-primary);
 }
 .dayNumber {
   position: absolute;

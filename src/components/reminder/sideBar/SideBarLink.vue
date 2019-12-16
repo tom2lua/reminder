@@ -33,18 +33,18 @@ export default {
   height: 4.3vw;
   font-size: 1.7vw;
   padding-left: 2vw;
-  color: $primary-color;
+  color: var(--text-color-primary);
 }
 .sideBarLink:first-child {
   margin-top: 2vw;
 }
 .sideBarLink:hover {
-  background-color: $background-color;
+  background-color: var(--primary-color-lighter);
   color: white;
   cursor: pointer;
 }
 .active {
-  background-color: $secondary-color;
+  background-color: var(--primary-color-light);
   color: white;
 }
 </style>
