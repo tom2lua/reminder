@@ -19,6 +19,6 @@ export default {
 
 <style lang="scss" scoped>
 .sideBar {
-  border-right: 2px solid $secondary-color;
+  border-right: 2px solid var(--primary-color-light);
 }
 </style>

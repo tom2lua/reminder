@@ -5,34 +5,34 @@
       <table>
         <tr>
           <td>
-            <b class="infoLabel">First Name</b>
+            <b class="infoLabel secondaryTextColor">First Name</b>
           </td>
           <td>
-            <p>{{firstName ? firstName : 'N/A'}}</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <b class="infoLabel">Last Name</b>
-          </td>
-          <td>
-            <p>{{lastName ? lastName : 'N/A'}}</p>
+            <p class="secondaryTextColor">{{firstName ? firstName : 'N/A'}}</p>
           </td>
         </tr>
         <tr>
           <td>
-            <b class="infoLabel">Birthday</b>
+            <b class="infoLabel secondaryTextColor">Last Name</b>
           </td>
           <td>
-            <p>{{birthday ? getDateString(birthday) : 'N/A'}}</p>
+            <p class="secondaryTextColor">{{lastName ? lastName : 'N/A'}}</p>
           </td>
         </tr>
         <tr>
           <td>
-            <b class="infoLabel">Email</b>
+            <b class="infoLabel secondaryTextColor">Birthday</b>
           </td>
           <td>
-            <p>{{email ? email : 'N/A'}}</p>
+            <p class="secondaryTextColor">{{birthday ? getDateString(birthday) : 'N/A'}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b class="infoLabel secondaryTextColor">Email</b>
+          </td>
+          <td>
+            <p class="secondaryTextColor">{{email ? email : 'N/A'}}</p>
           </td>
         </tr>
       </table>
@@ -105,7 +105,7 @@ export default {
 }
 .formTitle {
   font-size: 2rem;
-  color: $primary-color;
+  color: var(--text-color-primary);
   margin: 4vh 0 1.5vh 0;
 }
 .userInfo {

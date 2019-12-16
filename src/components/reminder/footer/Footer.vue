@@ -2,8 +2,9 @@
   <div class="container footerContainer">
     <p>
       <b>Reminder</b> by
-      <a href="https://github.com/tom2lua">Nguyen Tran</a>.Inspired by
-      <a href="https://github.com/antrannguyen">An Tran</a>
+      <a href="https://github.com/tom2lua">Nguyen Tran</a>
+      <!-- .Inspired by
+      <a href="https://github.com/antrannguyen">An Tran</a>-->
     </p>
   </div>
 </template>
@@ -20,7 +21,7 @@ export default {
   text-align: center;
   line-height: 10vh;
   height: 10vh;
-  background-color: $secondary-color;
+  background-color: var(--primary-color-light);
   color: black;
   width: 100%;
   position: relative;

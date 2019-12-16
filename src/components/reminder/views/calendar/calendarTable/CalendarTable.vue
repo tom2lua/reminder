@@ -147,7 +147,7 @@ export default {
   align-items: center;
   justify-content: center;
   font-size: 1.3vw;
-  color: $primary-color;
+  color: var(--text-color-primary);
   font-weight: bold;
 }
 .daysContainer {

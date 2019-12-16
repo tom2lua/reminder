@@ -7,7 +7,7 @@
             <div class="cardDay">{{selectDay.getDate()}}</div>
             <div class="cardMonth">{{monthNames[selectDay.getMonth()]}}</div>
             <br />
-            <div>{{dayFact}}</div>
+            <div class="cardContent">{{dayFact}}</div>
           </div>
         </div>
       </div>
@@ -60,17 +60,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.dayCardContainer {
+  margin-top: 3vh;
+}
 .cardDay {
   font-size: 9vw;
   text-align: center;
-  color: $primary-color;
+  color: var(--text-color-primary);
   line-height: 90%;
 }
 .cardMonth {
   font-size: 3vw;
   text-align: center;
+  color: var(--text-color-secondary);
 }
-.dayCardContainer {
-  margin-top: 3vh;
+.cardContent {
+  color: var(--text-color-secondary);
 }
 </style>

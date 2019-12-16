@@ -70,7 +70,7 @@ export default {
   font-size: 2.5vw;
   margin: 0 0 1vh 0;
   text-align: center;
-  color: $primary-color;
+  color: var(--text-color-primary);
 }
 .arrowIcon:hover {
   cursor: pointer;

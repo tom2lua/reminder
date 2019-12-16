@@ -51,7 +51,7 @@ export default {
   min-height: calc(100vh - 10vh - 8vw);
 }
 .divider {
-  background-color: $secondary-color;
+  background-color: var(--primary-color-light);
   height: calc(110vh - 9.5vw);
   width: 2px;
 }

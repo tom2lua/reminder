@@ -4,6 +4,7 @@ import VuexI18n from 'vuex-i18n'
 import authentication from './modules/authentication'
 import events from './modules/events'
 import settings from './modules/settings'
+import themes from './modules/themes'
 
 Vue.use(Vuex)
 
@@ -12,7 +13,8 @@ const store = new Vuex.Store({
   modules: {
     authentication,
     events,
-    settings
+    settings,
+    themes
   }
 })
 

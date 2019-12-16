@@ -4,7 +4,7 @@
     <div v-if="dailyEvents.length > 0" class="eventsContainer">
       <DailyEventCard v-for="(event) in dailyEvents" :key="event.id" :event="event"></DailyEventCard>
     </div>
-    <p v-else>You have no Daily Event yet</p>
+    <p v-else class="secondaryTextColor">You have no Daily Event yet</p>
   </div>
 </template>
 
@@ -49,7 +49,7 @@ export default {
 .label {
   text-align: left;
   font-size: 1.5rem;
-  color: $primary-color;
+  color: var(--text-color-primary);
 }
 .dailyEventsContainer {
   margin: calc(3vh + 10px) 3vh 3vh 0;

@@ -7,7 +7,7 @@
       </router-link>
       <div class="eventContainer">
         <EventCard v-for="(event, index) in eventList" :key="index" :event="event"></EventCard>
-        <p>You have {{eventList.length}} event(s)</p>
+        <p class="secondaryTextColor">You have {{eventList.length}} event(s)</p>
       </div>
     </div>
   </div>
@@ -50,9 +50,9 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  font-size: $header-font-size;
+  font-size: var(--font-size-header);
   margin: 3vh 0;
-  color: $primary-color;
+  color: var(--text-color-primary);
 }
 .eventContainer {
   display: grid;

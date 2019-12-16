@@ -79,7 +79,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
   name: 'EventForm',
   data() {
@@ -97,12 +96,6 @@ export default {
       eventNameMessObject: {},
       editMode: false
     }
-  },
-  computed: {
-    ...mapState({
-      eventsFormNotificationMessage: state =>
-        state.events.eventsFormNotificationMessage
-    })
   },
   methods: {
     createEvent() {
@@ -215,13 +208,6 @@ export default {
           0
         )
       }
-    },
-    eventsFormNotificationMessage(newValue) {
-      this.$buefy.toast.open({
-        duration: 2500,
-        ...newValue,
-        queue: true
-      })
     }
   }
 }
@@ -239,8 +225,8 @@ export default {
 }
 .header {
   margin: 3vh 0vh;
-  color: $primary-color;
-  font-size: $header-font-size;
+  color: var(--text-color-primary);
+  font-size: var(--font-size-header);
   text-align: center;
 }
 .notiContainer {

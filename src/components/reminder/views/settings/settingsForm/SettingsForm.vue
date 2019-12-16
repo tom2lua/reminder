@@ -5,7 +5,7 @@
       <table>
         <tr>
           <td>
-            <b class="settingLabel">First day of the week:</b>
+            <b class="settingLabel secondaryTextColor">First day of the week:</b>
           </td>
           <td>
             <b-field>
@@ -20,7 +20,7 @@
         </tr>
         <tr>
           <td>
-            <b class="settingLabel">Hour Format:</b>
+            <b class="settingLabel secondaryTextColor">Hour Format:</b>
           </td>
           <td>
             <b-field>
@@ -33,14 +33,14 @@
             </b-field>
           </td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>
             <b class="settingLabel">Notification Enabled:</b>
           </td>
           <td>
             <b-switch v-model="isNotiEnabled"></b-switch>
           </td>
-        </tr>
+        </tr>-->
       </table>
     </div>
   </div>
@@ -90,7 +90,7 @@ export default {
 <style lang="scss" scoped>
 .formTitle {
   font-size: 2rem;
-  color: $primary-color;
+  color: var(--text-color-primary);
   margin: 4vh 0 1.5vh 0;
 }
 .settingsContainer {

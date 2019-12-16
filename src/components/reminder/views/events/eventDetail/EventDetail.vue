@@ -128,11 +128,11 @@ export default {
 <style lang="scss" scoped>
 .header {
   margin: 3vh 0vh;
-  color: $primary-color;
-  font-size: $header-font-size;
+  color: var(--text-color-primary);
+  font-size: var(--font-size-header);
 }
 td {
-  font-size: $normal-font-size;
+  font-size: var(--font-size-normal);
   text-align: left;
   padding: 8px 8px 8px 1.5vh;
 }
