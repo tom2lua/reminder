@@ -44,7 +44,7 @@ export default {
 .mainContainer {
   margin-top: 10vh !important;
   min-height: 90vh;
-  background-color: white;
+  background-color: var(--secondary-color);
   position: relative;
 }
 .contentContainer {

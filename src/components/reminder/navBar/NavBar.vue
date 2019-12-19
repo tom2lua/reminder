@@ -50,6 +50,7 @@ export default {
   height: 8vw;
   border-bottom: 2px solid var(--primary-color-light);
   width: 100%;
+  background-color: var(--secondary-color);
 }
 .logo {
   font-size: 3vw;

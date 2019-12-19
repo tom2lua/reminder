@@ -130,10 +130,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~bulma/sass/utilities/_all';
-
 .card {
   border-radius: 5px;
+  color: var(--text-color-secondary) !important;
 }
 .eventHeader {
   position: relative;

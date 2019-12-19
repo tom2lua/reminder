@@ -78,7 +78,7 @@ export default {
 
 <style lang="scss" scoped>
 .dayGrid {
-  background-color: white;
+  background-color: var(--calendar-grid-color-thisMonth);
   height: 3.7vw;
   position: relative;
   font-size: 1.5vw;
@@ -92,7 +92,7 @@ export default {
   }
 }
 .otherMonthGrid {
-  background-color: #e4daff;
+  background-color: var(--calendar-grid-color-notThisMonth);
   color: rgb(88, 88, 88);
 }
 .todayGrid {

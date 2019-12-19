@@ -110,6 +110,7 @@ export default {
 
 .card {
   border-radius: 5px;
+  color: var(--text-color-secondary);
 }
 .eventHeader {
   position: relative;

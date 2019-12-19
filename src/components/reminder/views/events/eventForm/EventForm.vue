@@ -6,18 +6,18 @@
       <div class="column is-5 is-offset-1">
         <b-field
           label="Event Name"
-          custom-class="has-text-primary"
+          custom-class="primaryTextColor"
           :type="eventNameMessObject.type"
           :message="eventNameMessObject.message"
         >
           <b-input v-model="name"></b-input>
         </b-field>
-        <b-field label="Location" custom-class="has-text-primary">
+        <b-field label="Location" custom-class="primaryTextColor">
           <b-input v-model="location"></b-input>
         </b-field>
         <div class="columns">
           <div class="column is-6">
-            <b-field label="Start Time" custom-class="has-text-primary">
+            <b-field label="Start Time" custom-class="primaryTextColor">
               <b-timepicker
                 size="is-small"
                 :hour-format="getTimePickerFormat()"
@@ -27,7 +27,7 @@
             </b-field>
           </div>
           <div class="column is-6">
-            <b-field label="End Time" custom-class="has-text-primary">
+            <b-field label="End Time" custom-class="primaryTextColor">
               <b-timepicker
                 size="is-small"
                 :hour-format="getTimePickerFormat()"
@@ -38,16 +38,16 @@
             </b-field>
           </div>
         </div>
-        <b-field label="Description" custom-class="has-text-primary">
+        <b-field label="Description" custom-class="primaryTextColor">
           <b-input v-model="description" type="textarea" />
         </b-field>
         <div class="columns">
-          <b-field class="column is-6" label="Repeat" custom-class="has-text-primary">
+          <b-field class="column is-6" label="Repeat" custom-class="primaryTextColor">
             <b-select v-model="repeatOption">
               <option v-for="option in repeatOptions" :key="option" :value="option">{{ option }}</option>
             </b-select>
           </b-field>
-          <b-field class="column is-6" label="Event Type" custom-class="has-text-primary">
+          <b-field class="column is-6" label="Event Type" custom-class="primaryTextColor">
             <b-select v-model="eventType">
               <option
                 v-for="option in eventTypes"
@@ -68,8 +68,8 @@
         </div>
       </div>
       <div class="column is-6">
-        <div class="columns is-centered">
-          <b-field label="Select a date" custom-class="has-text-primary">
+        <div class="columns is-centered" style="padding-top: 12px">
+          <b-field label="Select a date" custom-class="primaryTextColor">
             <b-datepicker v-model="date" :years-range="[0, 10]" :nearby-month-days="true" inline></b-datepicker>
           </b-field>
         </div>

@@ -1,8 +1,9 @@
 @import './abstracts/variables';
 @import './bulmaCustomization//mystyle.scss';
 
-// @import '~bulma/sass/utilities/_all';
+@import '~bulma/sass/utilities/_all';
+
 $primary: black;
 
-// @import '~bulma';
-// @import '~buefy/src/scss/buefy';
+@import '~bulma';
+@import '~buefy/src/scss/buefy';

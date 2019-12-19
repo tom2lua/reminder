@@ -9,7 +9,7 @@
       v-bind="$attrs"
       :type="{ 'is-danger': errors[0], 'is-success': valid }"
       :message="errors"
-      custom-class="has-text-primary"
+      custom-class="primaryTextColor"
     >
       <b-input v-model="innerValue" v-bind="$attrs"></b-input>
     </b-field>

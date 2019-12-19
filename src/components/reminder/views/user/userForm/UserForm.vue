@@ -14,7 +14,7 @@
         label="Last Name"
         v-model="lastName"
       />
-      <b-field label="Birthday" custom-class="has-text-primary">
+      <b-field label="Birthday" custom-class="primaryTextColor">
         <b-datepicker
           icon="calendar-today"
           :max-date="new Date()"

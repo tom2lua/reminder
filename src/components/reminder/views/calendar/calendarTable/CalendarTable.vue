@@ -134,14 +134,14 @@ export default {
 .calendarContainer {
   width: calc(100% - 6vh);
   margin: 0 3vh 3vh 3vh;
-  background-color: white;
+  background-color: var(--secondary-color);
 }
 .headingContainer {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 }
 .dayGridItem {
-  background-color: white;
+  background-color: var(--secondary-color);
   height: 3vw;
   display: flex;
   align-items: center;

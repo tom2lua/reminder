@@ -2,11 +2,11 @@
   <div class="formContainer">
     <div class="columns is-gapless is-mobile is-centered">
       <div class="column is-10 is-10-mobile">
-        <b-field label="Username" custom-class="has-text-primary">
+        <b-field label="Username" custom-class="primaryTextColor">
           <b-input v-model="username"></b-input>
         </b-field>
-        <b-field label="Password" custom-class="has-text-primary">
-          <b-input v-model="password" type="password" password-reveal></b-input>
+        <b-field label="Password" custom-class="primaryTextColor">
+          <b-input v-model="password" type="password"></b-input>
         </b-field>
         <p class="has-text-right">
           <b-notification
@@ -15,12 +15,12 @@
             aria-close-label="Close notification"
             role="alert"
           >{{ notiMessage }}</b-notification>
-          <router-link :to="{ name: 'signUp' }">Forgot your password</router-link>
+          <router-link :to="{ name: 'signUp' }" class="link">Forgot your password</router-link>
         </p>
         <b-button type="is-primary" @click="login">Login</b-button>
         <p class="registerText">
           Doesn't have an account yet? Join us
-          <router-link :to="{ name: 'signUp' }">now</router-link>
+          <router-link :to="{ name: 'signUp' }" class="link">now</router-link>
         </p>
       </div>
     </div>
@@ -59,12 +59,19 @@ export default {
 .formContainer {
   padding: 20px 0;
   display: block;
-  background-color: white;
+  background-color: var(--secondary-color);
 }
 .columns {
   margin: 0;
 }
 .registerText {
   margin-top: 20px;
+  color: var(--text-color-secondary);
+}
+.link {
+  color: var(--text-color-primary);
+}
+.link:hover {
+  color: var(--text-color-secondary);
 }
 </style>

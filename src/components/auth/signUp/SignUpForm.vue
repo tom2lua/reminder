@@ -32,9 +32,9 @@
 
           <b-button class="signUpButton" type="is-primary" v-on:click="passes(signUp)">Sign Up</b-button>
         </ValidationObserver>
-        <div class>
-          Already have an account? Login
-          <router-link :to="{name: 'login'}">here</router-link>
+        <div class="secondaryTextColor">
+          Already have an account?
+          <router-link :to="{name: 'login'}" class="link">Login here</router-link>
         </div>
       </div>
     </div>
@@ -75,12 +75,18 @@ export default {
 .formContainer {
   padding: 20px 0;
   display: block;
-  background-color: white;
+  background-color: var(--secondary-color);
 }
 .columns {
   margin: 0;
 }
 .signUpButton {
   margin: 30px 0px 20px 0px;
+}
+.link {
+  color: var(--text-color-primary);
+}
+.link:hover {
+  color: var(--text-color-secondary);
 }
 </style>

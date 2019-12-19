@@ -1,0 +1,65 @@
+/* Dropdown Customization */
+.dropdown-content {
+    background-color: var(--secondary-color) !important;
+    -webkit-box-shadow: 0 2px 3px rgba(var(--text-color-secondary-rgb), 0.1), 0 0 0 1px rgba(var(--text-color-secondary-rgb), 0.1) !important;
+    box-shadow: 0 2px 3px rgba(var(--text-color-secondary-rgb), 0.1), 0 0 0 1px rgba(var(--text-color-secondary-rgb), 0.1) !important;
+}
+/* Datepicker Customization */
+.pagination-previous span {
+    color: var(--primary-color) !important;
+}
+.pagination-next span {
+    color: var(--primary-color) !important;
+}
+.pagination-next:focus, .pagination-previous:focus {
+    border-color: var(--primary-color) !important;
+}
+.select:not(.is-multiple):not(.is-loading)::after {
+    border-color: var(--text-color-primary) !important;
+}
+.datepicker-cell.is-selected {
+    background-color: var(--primary-color) !important;
+}
+.datepicker-cell.is-today {
+    border: solid 1px var(--primary-color) !important;
+}
+/* Select Customization */
+select {
+    background-color: var(--secondary-color) !important;
+    color: var(--text-color-secondary) !important;
+}
+/* Button Customization */
+.button.is-primary {
+    background-color: var(--primary-color-light) !important;
+}
+/* Input, Textare, Select, Button Customization */
+.input:focus, .textarea:focus, select:focus, .button:focus {
+    border-color: var(--primary-color) !important;
+    -webkit-box-shadow: 0 0 0 0.125em rgba(var(--primary-color-rgb), 0.25)  !important;
+    box-shadow: 0 0 0 0.125em rgba(var(--primary-color-rgb), 0.25) !important;
+}
+.input, .textarea, select, .button {
+    background-color: var(--secondary-color) !important;
+    color: var(--text-color-secondary) !important;
+}
+option {
+    color: var(--text-color-secondary) !important;
+}
+/* Text Customization */
+.secondaryTextColor {
+    color: var(--text-color-secondary) !important;
+}
+.primaryTextColor {
+    color: var(--text-color-primary) !important;
+}
+// Card Customization 
+.card {
+    background-color: var(--secondary-color) !important;
+    color: var(--text-color-secondary) !important;
+    -webkit-box-shadow: 0 2px 3px rgba(var(--text-color-secondary-rgb), 0.1), 0 0 0 1px rgba(var(--text-color-secondary-rgb), 0.1) !important;
+    box-shadow: 0 2px 3px rgba(var(--text-color-secondary-rgb), 0.1), 0 0 0 1px rgba(var(--text-color-secondary-rgb), 0.1) !important;
+}
+.card-header {
+    -webkit-box-shadow: 0 1px 2px rgba(var(--text-color-secondary-rgb), 0.1) !important;
+    box-shadow: 0 1px 2px rgba(var(--text-color-secondary-rgb), 0.1) !important;
+}

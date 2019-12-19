@@ -117,6 +117,10 @@ export default {
 }
 .changeText {
   font-size: 1.2rem;
+  color: var(--text-color-primary);
+}
+.changeText:hover {
+  color: var(--text-color-secondary);
 }
 table {
   margin-bottom: 1.5vh;

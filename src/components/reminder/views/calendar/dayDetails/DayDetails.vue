@@ -1,6 +1,6 @@
 <template>
   <div v-if="selectDay && loading === false" class="dayDetailContainer">
-    <div class="returnText" v-on:click="returnToCalendar">&lt; Return to Calendar</div>
+    <div class="returnText" v-on:click="returnToCalendar">Back to Calendar</div>
     <div class="columns is-centered">
       <div class="column is-5">
         <div class="card">
@@ -9,7 +9,7 @@
               <div class="cardDay">{{date.getDate()}}</div>
               <div class="cardMonth">{{monthNames[date.getMonth()]}}</div>
               <br />
-              <div>{{dayFact}}</div>
+              <div class="factText">{{dayFact}}</div>
             </div>
           </div>
         </div>
@@ -98,6 +98,10 @@ export default {
 .cardMonth {
   font-size: 3vw;
   text-align: center;
+  color: var(--text-color-secondary);
+}
+.factText {
+  color: var(--text-color-secondary);
 }
 .returnText {
   font-size: 1.3vw;

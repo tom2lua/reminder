@@ -126,6 +126,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+table {
+  color: var(--text-color-secondary);
+}
 .header {
   margin: 3vh 0vh;
   color: var(--text-color-primary);

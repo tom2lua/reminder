@@ -7,7 +7,7 @@
       </router-link>
       <div class="eventContainer">
         <EventCard v-for="(event, index) in eventList" :key="index" :event="event"></EventCard>
-        <p class="secondaryTextColor">You have {{eventList.length}} event(s)</p>
+        <p class="primaryTextColor">You have {{eventList.length}} event(s)</p>
       </div>
     </div>
   </div>

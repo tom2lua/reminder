@@ -76,5 +76,6 @@ export default {
 }
 .cardContent {
   color: var(--text-color-secondary);
+  // background-color: var(--secondary-color);
 }
 </style>

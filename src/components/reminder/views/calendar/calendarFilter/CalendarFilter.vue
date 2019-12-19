@@ -77,7 +77,7 @@ export default {
   padding: 15px;
   border-radius: 5px;
   background-color: var(--text-color-primary);
-  color: white;
+  color: var(--text-color-secondary);
   font-size: 20px;
 }
 .filterContainer {
@@ -88,6 +88,7 @@ export default {
 .filterTitle {
   font-weight: bold;
   margin-bottom: 10px;
+  color: var(--text-color-secondary);
 }
 .eventTypeContainer {
   display: grid;
@@ -95,10 +96,9 @@ export default {
   grid-column-gap: 10px;
   grid-row-gap: 10px;
 }
-.b-checkbox.checkbox + .checkbox {
+.b-checkbox.checkbox,
+.checkbox {
   margin-left: 0 !important;
-}
-.b-radio.radio + .radio {
-  margin-left: 0 !important;
+  color: var(--text-color-secondary);
 }
 </style>
