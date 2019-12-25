@@ -22,7 +22,7 @@ export default {
       this.$store.commit('setUser', userFromLocalStorage)
       // this.$router.push({ name: 'calendar' })
     }
-    this.setCSSVariables()
+    // this.setCSSVariables()
   },
   computed: {
     ...mapState({
@@ -42,40 +42,41 @@ export default {
       await this.$store.dispatch('FETCH_EVENTS')
       await this.$store.dispatch('FETCH_EVENT_TYPES')
       await this.$store.dispatch('FETCH_USER_SETTINGS')
+      this.$store.dispatch('INIT_THEME')
       this.loading = false
-    },
-    setCSSProperty(property, value) {
-      if (property[0] != '-') {
-        property = '--' + property
-      }
-      document.documentElement.style.setProperty(property, value)
-    },
-    setCSSVariables() {
-      const theme = this.theme
-
-      this.setCSSProperty('primary-color', theme.primaryColor.base)
-      this.setCSSProperty('primary-color-rgb', theme.primaryColor.baseRgb)
-      this.setCSSProperty('primary-color-light', theme.primaryColor.light)
-      this.setCSSProperty('primary-color-lighter', theme.primaryColor.lighter)
-      this.setCSSProperty('secondary-color', theme.secondaryColor)
-      this.setCSSProperty('logo-color', theme.logoColor)
-      this.setCSSProperty('text-color-primary', theme.textColor.primary)
-      this.setCSSProperty('text-color-secondary', theme.textColor.secondary)
-      this.setCSSProperty(
-        'text-color-secondary-rgb',
-        theme.textColor.secondaryRgb
-      )
-      this.setCSSProperty(
-        'calendar-grid-color-thisMonth',
-        theme.calendarGridColor.thisMonth
-      )
-      this.setCSSProperty(
-        'calendar-grid-color-notThisMonth',
-        theme.calendarGridColor.notThisMonth
-      )
-      this.setCSSProperty('font-size-normal', theme.fontSize.normal)
-      this.setCSSProperty('font-size-header', theme.fontSize.header)
     }
+    // setCSSProperty(property, value) {
+    //   if (property[0] != '-') {
+    //     property = '--' + property
+    //   }
+    //   document.documentElement.style.setProperty(property, value)
+    // },
+    // setCSSVariables() {
+    //   const theme = this.theme
+
+    //   this.setCSSProperty('primary-color', theme.primaryColor.base)
+    //   this.setCSSProperty('primary-color-rgb', theme.primaryColor.baseRgb)
+    //   this.setCSSProperty('primary-color-light', theme.primaryColor.light)
+    //   this.setCSSProperty('primary-color-lighter', theme.primaryColor.lighter)
+    //   this.setCSSProperty('secondary-color', theme.secondaryColor)
+    //   this.setCSSProperty('logo-color', theme.logoColor)
+    //   this.setCSSProperty('text-color-primary', theme.textColor.primary)
+    //   this.setCSSProperty('text-color-secondary', theme.textColor.secondary)
+    //   this.setCSSProperty(
+    //     'text-color-secondary-rgb',
+    //     theme.textColor.secondaryRgb
+    //   )
+    //   this.setCSSProperty(
+    //     'calendar-grid-color-thisMonth',
+    //     theme.calendarGridColor.thisMonth
+    //   )
+    //   this.setCSSProperty(
+    //     'calendar-grid-color-notThisMonth',
+    //     theme.calendarGridColor.notThisMonth
+    //   )
+    //   this.setCSSProperty('font-size-normal', theme.fontSize.normal)
+    //   this.setCSSProperty('font-size-header', theme.fontSize.header)
+    // }
   }
 }
 </script>

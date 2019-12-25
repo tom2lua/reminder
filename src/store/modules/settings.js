@@ -1,6 +1,7 @@
 import axios from 'axios'
 import router from '../../router/index'
 const baseUrl = 'https://backend-tom2lua.herokuapp.com/api'
+import { ToastProgrammatic as Toast } from 'buefy'
 
 const getBearerConfig = context => {
   let token = `bearer ${context.rootState.authentication.token}`
@@ -61,7 +62,19 @@ export default {
           config
         )
         context.commit('updateSettings', updatedSettings.data)
+        Toast.open({
+          duration: 2500,
+          message: 'Settings Updated!!!',
+          type: 'is-primary',
+          queue: true
+        })
       } catch (error) {
+        Toast.open({
+          duration: 2500,
+          message: 'Error occured. Please try again later !!!',
+          type: 'is-danger',
+          queue: true
+        })
         console.error(error.response)
       }
     }

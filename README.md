@@ -1,5 +1,5 @@
 # Reminder
-A Reminder application which can help you with remembering important dates or events in your daily life. A demo can be found at: https://amazing-shirley-0738ea.netlify.com
+A Reminder application which can help you with remembering important dates or events in your daily life. A running demo can be found at: https://amazing-shirley-0738ea.netlify.com
 This application use Vuejs for its front-end, Nodejs for back-end and Mongoose with Atlas for database.
 ## What can this application do ?
 - It can create, update or delete events.
