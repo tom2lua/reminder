@@ -38,7 +38,7 @@ export default {
         localStorage.setItem('loggedInUser', JSON.stringify(response.data))
         commit('setUser', response.data)
       } catch (error) {
-        console.error(error)
+        console.error(error.response)
       }
     },
     async SIGN_UP({ commit, dispatch }, payload) {

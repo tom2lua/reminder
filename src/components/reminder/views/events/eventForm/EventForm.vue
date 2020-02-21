@@ -70,7 +70,13 @@
       <div class="column is-6">
         <div class="columns is-centered" style="padding-top: 12px">
           <b-field label="Select a date" custom-class="primaryTextColor">
-            <b-datepicker v-model="date" :years-range="[0, 10]" :nearby-month-days="true" inline></b-datepicker>
+            <b-datepicker
+              v-model="date"
+              :years-range="[0, 10]"
+              :nearby-month-days="true"
+              :first-day-of-week="getFirstDayOfWeek()"
+              inline
+            ></b-datepicker>
           </b-field>
         </div>
       </div>
@@ -94,7 +100,8 @@ export default {
       eventType: '',
       eventTypes: [],
       eventNameMessObject: {},
-      editMode: false
+      editMode: false,
+      firstDayOfWeek: ''
     }
   },
   methods: {
@@ -175,6 +182,11 @@ export default {
     },
     getTimePickerFormat() {
       return this.$store.state.settings.settings.is12HourFormat ? '12' : '24'
+    },
+    getFirstDayOfWeek() {
+      return this.$store.state.settings.settings.firstDayOfWeek === 'Monday'
+        ? 1
+        : 0
     }
   },
   created() {

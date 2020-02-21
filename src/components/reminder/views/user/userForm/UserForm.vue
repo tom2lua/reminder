@@ -20,6 +20,7 @@
           :max-date="new Date()"
           v-model="birthday"
           :date-formatter="(date) => date.toLocaleDateString('en-EN', { year: 'numeric', month: 'long', day: 'numeric' })"
+          :first-day-of-week="getFirstDayOfWeek()"
         ></b-datepicker>
       </b-field>
       <BInputWithValidation rules="required|email" type="text" label="Email" v-model="email" />
@@ -64,6 +65,11 @@ export default {
     },
     cancelEdit() {
       this.$router.go(-1)
+    },
+    getFirstDayOfWeek() {
+      return this.$store.state.settings.settings.firstDayOfWeek === 'Monday'
+        ? 1
+        : 0
     }
   }
 }

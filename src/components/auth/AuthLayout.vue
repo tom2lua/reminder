@@ -24,7 +24,7 @@ export default {
 }
 .logo {
   text-align: center;
-  color: var(--text-color-primary);
+  color: var(--secondary-color);
   font-size: 5vw;
   padding: 5vh 0;
 }
