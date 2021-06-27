@@ -6,10 +6,10 @@
         <div class="card">
           <div class="card-content">
             <div class="content">
-              <div class="cardDay">{{date.getDate()}}</div>
-              <div class="cardMonth">{{monthNames[date.getMonth()]}}</div>
+              <div class="cardDay">{{ date.getDate() }}</div>
+              <div class="cardMonth">{{ monthNames[date.getMonth()] }}</div>
               <br />
-              <div class="factText">{{dayFact}}</div>
+              <div class="factText">{{ dayFact }}</div>
             </div>
           </div>
         </div>
@@ -18,7 +18,11 @@
     <div class="eventsLabel">Events for this day:</div>
     <div v-if="selectDay.events.length > 0">
       <div class="eventsContainer">
-        <EventCard v-for="(event, index) in selectDayNoDailyEvents" :key="index" :event="event"></EventCard>
+        <EventCard
+          v-for="(event, index) in selectDayNoDailyEvents"
+          :key="index"
+          :event="event"
+        ></EventCard>
       </div>
     </div>
     <div v-else class="noEventText">You have no events for this day yet</div>
@@ -64,10 +68,12 @@ export default {
       this.$emit('show-calendar')
     },
     async getFactFromApi() {
-      const fact = await axios.get(
-        `http://numbersapi.com/${this.date.getMonth() +
-          1}/${this.date.getDate()}/date`
-      )
+      const url = 'https://backend-tom2lua.herokuapp.com/api'
+
+      const fact = await axios.post(`${url}/misc/dayFact`, {
+        month: this.date.getMonth() + 1,
+        date: this.date.getDate()
+      })
       this.dayFact = fact.data
       this.loading = false
     },

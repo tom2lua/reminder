@@ -62,7 +62,8 @@ export default {
         textColor: {
           primary: '#6a8a82',
           secondary: '#282726',
-          secondaryRgb: '40, 39, 38'
+          secondaryRgb: '40, 39, 38',
+          secondaryContrast: 'white'
         },
         calendarGridColor: {
           thisMonth: 'white',
@@ -86,7 +87,8 @@ export default {
         textColor: {
           primary: '#be9063',
           secondary: 'white',
-          secondaryRgb: '255, 255, 255'
+          secondaryRgb: '255, 255, 255',
+          secondaryContrast: 'white'
         },
         calendarGridColor: {
           thisMonth: '040c0e',

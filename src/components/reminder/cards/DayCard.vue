@@ -4,10 +4,10 @@
       <div class="card">
         <div class="card-content">
           <div class="content">
-            <div class="cardDay">{{selectDay.getDate()}}</div>
-            <div class="cardMonth">{{monthNames[selectDay.getMonth()]}}</div>
+            <div class="cardDay">{{ selectDay.getDate() }}</div>
+            <div class="cardMonth">{{ monthNames[selectDay.getMonth()] }}</div>
             <br />
-            <div class="cardContent">{{dayFact}}</div>
+            <div class="cardContent">{{ dayFact }}</div>
           </div>
         </div>
       </div>
@@ -45,10 +45,13 @@ export default {
   },
   methods: {
     async getFactFromApi() {
-      const fact = await axios.get(
-        `https://numbersapi.com/${this.selectDay.getMonth() +
-          1}/${this.selectDay.getDate()}/date`
-      )
+      const url = 'https://backend-tom2lua.herokuapp.com/api'
+
+      const fact = await axios.post(`${url}/misc/dayFact`, {
+        month: this.selectDay.getMonth() + 1,
+        date: this.selectDay.getDate()
+      })
+
       this.dayFact = fact.data
       this.loading = false
     }

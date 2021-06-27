@@ -5,15 +5,25 @@
       <table>
         <tr>
           <td>
-            <b class="settingLabel secondaryTextColor">First day of the week:</b>
+            <b class="settingLabel secondaryTextColor"
+              >First day of the week:</b
+            >
           </td>
           <td>
             <b-field>
               <b-radio-button v-model="firstDayOfWeek" native-value="Monday">
-                <span>Monday</span>
+                <span
+                  class="radioInputs"
+                  :class="{ active: firstDayOfWeek == 'Monday' }"
+                  >Monday</span
+                >
               </b-radio-button>
               <b-radio-button v-model="firstDayOfWeek" native-value="Sunday">
-                <span>Sunday</span>
+                <span
+                  class="radioInputs"
+                  :class="{ active: firstDayOfWeek == 'Sunday' }"
+                  >Sunday</span
+                >
               </b-radio-button>
             </b-field>
           </td>
@@ -25,22 +35,18 @@
           <td>
             <b-field>
               <b-radio-button v-model="is12HourFormat" :native-value="true">
-                <span>12</span>
+                <span class="radioInputs" :class="{ active: is12HourFormat }"
+                  >12</span
+                >
               </b-radio-button>
               <b-radio-button v-model="is12HourFormat" :native-value="false">
-                <span>24</span>
+                <span class="radioInputs" :class="{ active: !is12HourFormat }"
+                  >24</span
+                >
               </b-radio-button>
             </b-field>
           </td>
         </tr>
-        <!-- <tr>
-          <td>
-            <b class="settingLabel">Notification Enabled:</b>
-          </td>
-          <td>
-            <b-switch v-model="isNotiEnabled"></b-switch>
-          </td>
-        </tr>-->
       </table>
     </div>
   </div>
@@ -111,5 +117,8 @@ th {
 }
 .buttons {
   margin-top: 30px;
+}
+.radioInputs:not(.active) {
+  color: var(--text-color-secondary);
 }
 </style>

@@ -3,7 +3,11 @@
     <div class="card-content">
       <div class="content">
         <div>
-          <b-tooltip :label="event.eventType.name" type="is-light" position="is-top">
+          <b-tooltip
+            :label="event.eventType.name"
+            type="is-light"
+            position="is-top"
+          >
             <b-icon
               v-bind:style="{ color: event.eventType.representColor }"
               class="eventTypeIcon"
@@ -12,12 +16,12 @@
               size="is-small"
             ></b-icon>
           </b-tooltip>
-          <span class="eventName detailText">{{event.name}}</span>
+          <span class="eventName detailText">{{ event.name }}</span>
         </div>
 
         <div v-if="!isDailyEventCard">
           <b-tooltip label="Initial Date" type="is-light" position="is-right">
-            <span class="eventDate detailText">{{getDateString()}}</span>
+            <span class="eventDate detailText">{{ getDateString() }}</span>
           </b-tooltip>
         </div>
         <br />
@@ -25,7 +29,7 @@
           <b-tooltip label="Location" type="is-light" position="is-right">
             <div>
               <b-icon pack="fas" icon="map-marker-alt" size="is-small"></b-icon>
-              <span class="detailText">{{event.location}}</span>
+              <span class="detailText">{{ event.location }}</span>
             </div>
           </b-tooltip>
         </div>
@@ -33,9 +37,10 @@
           <b-tooltip label="Event Time" type="is-light" position="is-right">
             <div>
               <b-icon pack="fas" icon="clock" size="is-small"></b-icon>
-              <span
-                class="detailText"
-              >{{getTimeString(event.startTime)}} - {{getTimeString(event.endTime)}}</span>
+              <span class="detailText"
+                >{{ getTimeString(event.startTime) }} -
+                {{ getTimeString(event.endTime) }}</span
+              >
             </div>
           </b-tooltip>
         </div>
@@ -43,7 +48,7 @@
           <b-tooltip label="Description" type="is-light" position="is-right">
             <div>
               <b-icon pack="fas" icon="comment-alt" size="is-small"></b-icon>
-              <span class="detailText">{{event.description}}</span>
+              <span class="detailText">{{ event.description }}</span>
             </div>
           </b-tooltip>
         </div>
@@ -51,7 +56,7 @@
           <div>
             <div>
               <b-icon pack="fas" icon="redo-alt" size="is-small"></b-icon>
-              <span class="detailText">{{event.repeatOption}}</span>
+              <span class="detailText">{{ event.repeatOption }}</span>
             </div>
           </div>
         </b-tooltip>
@@ -135,5 +140,8 @@ export default {
 }
 .eventDetailText {
   margin-top: 10px;
+}
+.eventDetailText a {
+  color: var(--text-color-primary);
 }
 </style>

@@ -2,12 +2,22 @@
   <div class="incomingEventContainer">
     <div class="label">Incoming Events:</div>
     <b-field label="Show Events till" custom-class="secondaryTextColor">
-      <b-select v-model="showEventRange">
-        <option v-for="option in showEventRangeOptions" :value="option" :key="option">{{ option }}</option>
+      <b-select v-model="showEventRange" class="selectInput">
+        <option
+          v-for="option in showEventRangeOptions"
+          :value="option"
+          :key="option"
+        >
+          {{ option }}
+        </option>
       </b-select>
     </b-field>
     <div v-if="futureEvents.length > 0" class="eventsContainer">
-      <FutureEventCard v-for="event in futureEvents" :key="event.id" :event="event"></FutureEventCard>
+      <FutureEventCard
+        v-for="event in futureEvents"
+        :key="event.id"
+        :event="event"
+      ></FutureEventCard>
     </div>
     <p v-else class="secondaryTextColor">You have no event in this range yet</p>
   </div>
@@ -25,7 +35,7 @@ export default {
   },
   data() {
     return {
-      today: new Date(),
+      today: '',
       futureEvents: '',
       showEventRange: 'This Week',
       showEventRangeOptions: [
@@ -37,7 +47,7 @@ export default {
     }
   },
   methods: {
-    setFutureEvents(dateRange) {
+    setFutureEvents() {
       this.futureEvents = this.events.filter(event => {
         return this.isInShowRange(event)
       })
@@ -102,24 +112,24 @@ export default {
             eventDate.getDate() <= endDate.getDate()
           )
         case 'Annually':
+          eventDate.setFullYear(endDate.getFullYear())
           return (
-            this.today.getDate() <= eventDate.getDate() &&
-            eventDate.getDate() <= endDate.getDate() &&
-            this.today.getMonth() <= eventDate.getMonth() &&
-            eventDate.getMonth() <= endDate.getMonth()
+            this.today.getTime() <= eventDate.getTime() &&
+            eventDate.getTime() <= endDate.getTime()
           )
         case 'No Repeat':
           return (
-            this.today.getDate() <= eventDate.getDate() &&
-            eventDate.getDate() <= endDate.getDate() &&
-            this.today.getMonth() <= eventDate.getMonth() &&
-            eventDate.getMonth() <= endDate.getMonth() &&
-            this.today.getFullYear() <= eventDate.getFullYear() &&
-            eventDate.getFullYear() <= endDate.getFullYear()
+            this.today.getTime() <= eventDate.getTime() &&
+            eventDate.getTime() <= endDate.getTime()
           )
         default:
           return false
       }
+    },
+    initToday() {
+      let today = new Date()
+      today.setHours(0, 0, 0, 0)
+      this.today = new Date(today)
     }
   },
   computed: {
@@ -128,6 +138,7 @@ export default {
     })
   },
   created() {
+    this.initToday()
     this.setFutureEvents()
   },
   watch: {
@@ -155,5 +166,8 @@ export default {
 }
 .incomingEventContainer {
   margin: calc(3vh + 10px) 3vh 3vh 0;
+}
+.selectInput select {
+  color: var(--text-color-secondary);
 }
 </style>

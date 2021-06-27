@@ -38,9 +38,9 @@ select {
     -webkit-box-shadow: 0 0 0 0.125em rgba(var(--primary-color-rgb), 0.25)  !important;
     box-shadow: 0 0 0 0.125em rgba(var(--primary-color-rgb), 0.25) !important;
 }
-.input, .textarea, select, .button {
+.input, .textarea, .button {
     background-color: var(--secondary-color) !important;
-    color: var(--text-color-secondary) !important;
+    color: var(--text-color-secondary-contrast) !important;
 }
 option {
     color: var(--text-color-secondary) !important;
