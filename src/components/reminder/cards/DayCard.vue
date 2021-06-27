@@ -46,7 +46,7 @@ export default {
   methods: {
     async getFactFromApi() {
       const fact = await axios.get(
-        `http://numbersapi.com/${this.selectDay.getMonth() +
+        `https://numbersapi.com/${this.selectDay.getMonth() +
           1}/${this.selectDay.getDate()}/date`
       )
       this.dayFact = fact.data
