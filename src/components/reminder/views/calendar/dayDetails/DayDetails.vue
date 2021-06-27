@@ -65,7 +65,7 @@ export default {
     },
     async getFactFromApi() {
       const fact = await axios.get(
-        `https://numbersapi.com/${this.date.getMonth() +
+        `http://numbersapi.com/${this.date.getMonth() +
           1}/${this.date.getDate()}/date`
       )
       this.dayFact = fact.data

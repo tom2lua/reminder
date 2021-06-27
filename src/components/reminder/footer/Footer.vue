@@ -1,10 +1,8 @@
 <template>
-  <div class="container footerContainer">
+  <div class="footerContainer">
     <p>
       <b>Reminder</b> by
       <a href="https://github.com/tom2lua">Nguyen Tran</a>
-      <!-- .Inspired by
-      <a href="https://github.com/antrannguyen">An Tran</a>-->
     </p>
   </div>
 </template>
