@@ -37,7 +37,8 @@ export default {
         textColor: {
           primary: '#7957d5',
           secondary: '#4a4a4a',
-          secondaryRgb: '74, 74, 74'
+          secondaryRgb: '74, 74, 74',
+          secondaryContrast: 'white'
         },
         calendarGridColor: {
           thisMonth: 'white',
@@ -173,7 +174,6 @@ export default {
   mutations: {},
   actions: {
     SET_THEME({ state }, payload) {
-      console.log(payload)
       const theme = state.themes.find(theme => theme.name === payload)
       localStorage.setItem('theme', JSON.stringify(theme))
 
@@ -212,6 +212,10 @@ export default {
       document.documentElement.style.setProperty(
         '--text-color-secondary-rgb',
         theme.textColor.secondaryRgb
+      )
+      document.documentElement.style.setProperty(
+        '--text-color-secondary-contrast',
+        theme.textColor.secondaryContrast
       )
       document.documentElement.style.setProperty(
         '--calendar-grid-color-thisMonth',

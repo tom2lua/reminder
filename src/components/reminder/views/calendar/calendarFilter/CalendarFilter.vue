@@ -77,7 +77,7 @@ export default {
   padding: 15px;
   border-radius: 5px;
   background-color: var(--text-color-primary);
-  color: var(--text-color-secondary);
+  color: var(--text-color-secondary-contrast);
   font-size: 20px;
 }
 .filterContainer {

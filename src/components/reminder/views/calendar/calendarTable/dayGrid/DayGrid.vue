@@ -93,7 +93,10 @@ export default {
 }
 .otherMonthGrid {
   background-color: var(--calendar-grid-color-notThisMonth);
-  color: rgb(88, 88, 88);
+  color: var(--text-color-secondary-contrast);
+  &:hover {
+    color: var(--text-color-secondary);
+  }
 }
 .todayGrid {
   font-weight: bold !important;
