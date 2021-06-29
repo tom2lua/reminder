@@ -118,7 +118,7 @@ th {
 .buttons {
   margin-top: 30px;
 }
-.radioInputs:not(.active) {
-  color: var(--text-color-secondary);
+.radioInputs.active {
+  color: var(--text-color-secondary-contrast);
 }
 </style>

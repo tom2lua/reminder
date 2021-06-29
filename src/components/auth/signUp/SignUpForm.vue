@@ -30,11 +30,18 @@
             v-model="email"
           />
 
-          <b-button class="signUpButton" type="is-primary" v-on:click="passes(signUp)">Sign Up</b-button>
+          <b-button
+            class="signUpButton constrastSecondaryTextColor"
+            type="is-primary"
+            v-on:click="passes(signUp)"
+            >Sign Up</b-button
+          >
         </ValidationObserver>
         <div class="secondaryTextColor">
           Already have an account?
-          <router-link :to="{name: 'login'}" class="link">Login here</router-link>
+          <router-link :to="{ name: 'login' }" class="link"
+            >Login here</router-link
+          >
         </div>
       </div>
     </div>
@@ -81,7 +88,7 @@ export default {
   margin: 0;
 }
 .signUpButton {
-  margin: 30px 0px 20px 0px;
+  margin: 20px 0px 10px 0px;
 }
 .link {
   color: var(--text-color-primary);

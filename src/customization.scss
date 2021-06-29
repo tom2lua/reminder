@@ -40,7 +40,7 @@ select {
 }
 .input, .textarea, .button {
     background-color: var(--secondary-color) !important;
-    color: var(--text-color-secondary-contrast) !important;
+    color: var(--text-color-secondary) !important;
 }
 option {
     color: var(--text-color-secondary) !important;
@@ -51,6 +51,9 @@ option {
 }
 .primaryTextColor {
     color: var(--text-color-primary) !important;
+}
+.constrastSecondaryTextColor {
+    color: var(--text-color-secondary-contrast) !important;
 }
 // Card Customization 
 .card {

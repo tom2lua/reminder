@@ -2,12 +2,22 @@
   <div class="columns">
     <div class="column is-7 is-offset-1">
       <div class="header">My Events</div>
-      <router-link :to="{name: 'newEvent'}">
-        <b-button type="is-primary" icon-left="plus" size="is-medium">New Event</b-button>
+      <router-link :to="{ name: 'newEvent' }">
+        <b-button
+          class="constrastSecondaryTextColor"
+          type="is-primary"
+          icon-left="plus"
+          size="is-medium"
+          >New Event</b-button
+        >
       </router-link>
       <div class="eventContainer">
-        <EventCard v-for="(event, index) in eventList" :key="index" :event="event"></EventCard>
-        <p class="primaryTextColor">You have {{eventList.length}} event(s)</p>
+        <EventCard
+          v-for="(event, index) in eventList"
+          :key="index"
+          :event="event"
+        ></EventCard>
+        <p class="primaryTextColor">You have {{ eventList.length }} event(s)</p>
       </div>
     </div>
   </div>

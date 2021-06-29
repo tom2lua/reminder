@@ -14,11 +14,19 @@
             type="is-danger"
             aria-close-label="Close notification"
             role="alert"
-          >{{ notiMessage }}</b-notification>
-          <router-link :to="{ name: 'signUp' }" class="link">Forgot your password</router-link>
+            >{{ notiMessage }}</b-notification
+          >
+          <!-- <router-link :to="{ name: 'signUp' }" class="link"
+            >Forgot your password</router-link
+          > -->
         </p>
-        <b-button type="is-primary" @click="login">Login</b-button>
-        <p class="registerText">
+        <b-button
+          class="loginButton constrastSecondaryTextColor"
+          type="is-primary"
+          @click="login"
+          >Login</b-button
+        >
+        <p class="secondaryTextColor">
           Doesn't have an account yet? Join us
           <router-link :to="{ name: 'signUp' }" class="link">now</router-link>
         </p>
@@ -64,14 +72,13 @@ export default {
 .columns {
   margin: 0;
 }
-.registerText {
-  margin-top: 20px;
-  color: var(--text-color-secondary);
-}
 .link {
   color: var(--text-color-primary);
 }
 .link:hover {
   color: var(--text-color-secondary);
+}
+.loginButton {
+  margin: 10px 0;
 }
 </style>
